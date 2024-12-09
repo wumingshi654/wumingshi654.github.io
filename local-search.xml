@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title>CE325: Computer Security Lab2</title>
+    <link href="/2024/12/09/CE325-Computer-Security-Lab2/"/>
+    <url>/2024/12/09/CE325-Computer-Security-Lab2/</url>
+    
+    <content type="html"><![CDATA[<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Assignment 2 is to implements a simplified version of Bitcoin mining&#x2F;digital signature.<br>Bitcoin is a cryptocurrency. Bitcoins are mined through proof-of-work mechanism.<br>Bitcoin miners are given technical puzzles to solve.<br>The first miner who solves the puzzle is awarded a specified number of bitcoins.<br>The winner creates and sign a new block with digital signature and broadcast to other Bitcoin users.<br>The signed block is linked to the previous signed blocks. These blocks form a chain of blocks (called blockchain) as shown in the following figure.<br>The new signed blocks are verified by others and could become mature after being confirmed by a given number of miners, which is measured by length of blocks linked to the new blocks.</p><h2 id="Assignment"><a href="#Assignment" class="headerlink" title="Assignment"></a>Assignment</h2><ul><li>Task1: Create a RSA public&#x2F;private key pair with 1024 bits key length [10%]</li><li>Task2: Find a nonce which produces a hash value with hash algorithm SHA-256 satisfying requirement of the 5 least significant bits (LSB) being zero [40%]</li><li>Task3: Digitally sign the nonce and your student number with the RSA private key [20%]</li><li>Task4: Verify the signature [20%]<img src="https://i.ibb.co/kSgvbBm/486812d3aac04dcea31c1f86b3404362.png" alt="486812d3aac04dcea31c1f86b3404362"></li></ul><h2 id="概述与思路"><a href="#概述与思路" class="headerlink" title="概述与思路"></a>概述与思路</h2><p>这个任务就是模拟简单的比特币挖矿，先生成RSA公钥和私钥(Task1)，通过不断生成随机数计算SHA-256哈希值，得出最后5位都是0的哈希值时停止(Task2)，最后使用私钥加密得出的随机数并验证(Task3, 4)</p><h2 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h2><img src="https://i.ibb.co/mGpCFZr/024e92c9ea00415e8f23cf709e2b55fe.png" alt="024e92c9ea00415e8f23cf709e2b55fe">]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>python</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  
+</search>
