@@ -4,6 +4,27 @@
   
   
   <entry>
+    <title>DTS207TC-Database-Development-and-Design-AS1</title>
+    <link href="/2024/12/17/DTS207TC-Database-Development-and-Design-AS1/"/>
+    <url>/2024/12/17/DTS207TC-Database-Development-and-Design-AS1/</url>
+    
+    <content type="html"><![CDATA[<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>This course work will be assessed for the following learning outcomes:<br>A. Identify and apply the principles underpinning transaction management within DBMS.<br>B. Demonstrate an understanding of advanced SQL topics.<br>E. State the main concepts in data warehousing and data mining.</p><h2 id="Assignment"><a href="#Assignment" class="headerlink" title="Assignment"></a>Assignment</h2><p>Matrix multiplication is a fundamental operation in linear algebra where two matrices are multiplied to produce a new matrix. Specifically, if we have two matrices A and B, the product  of these matrices, denoted as AB, is calculated by taking the dot product of the rows of A with the columns of B. For example, for two matrices of dimension 2x2, their matrix multiplication formula is<br><img src="https://i.ibb.co/Fn6gPLD/e99682ca37714574aeb019586111d4ce.png" alt="e99682ca37714574aeb019586111d4ce"><br>To test your proficiency in SQL under an open-book setting,  this assignment requires you to implement matrix multiplication using SQL. It is divided into the following steps:</p><ol><li><p>  The Python function in the attachment is capable of generating an N-dimensional square matrix composed of random numbers in the format of (row_id, col_id, value). First, use a Python program to invoke this function and generate such a matrix, then import it into a table M in PostgreSQL. Additionally, discuss the impact of database transaction mechanisms on the performance of record insertion. Record the program running time (ideally, &lt;10s)when N&#x3D;500 and take a screenshot. (20 marks)</p></li><li><p>  Perform a “pivot” operation on the table M from 1) (write the PL&#x2F;pgSQL manually without using crosstab) to generate a data table A. You can design your own schema for table A,  but ensure that each row of the matrix is placed in a separate record. Note that N cannot be predetermined in the program. Provide a screenshot of the computation results when  N&#x3D;3 and perform a correctness check. Provide another screenshot of the running time (ideally, &lt;1s) when N&#x3D;500. (20 marks)</p></li><li><p>  Using PL&#x2F;pgSQL, perform a matrix transposition on table A from 2) and store the results in another table with the same schema as A. Provide a screenshot of the computation results when N&#x3D;3 and perform a correctness check. Provide another screenshot of the running time (ideally, &lt;1s) when N&#x3D;500. (20 marks) </p></li><li><p>Using PL&#x2F;pgSQL, calculate the matrix multiplication of the matrix stored in table A from 2) with itself, and store the results in another table with the same schema as A. Provide a screenshot of the computation results when N&#x3D;3 and perform. a correctness check. Provide another screenshot of the running time (ideally, &lt;1 min) when N&#x3D;500. (20 marks)</p></li><li><p>For the above tasks 1-4, check the program’s running time when N&#x3D;1700. Provide corresponding screenshots. The ideal running times should not exceed: 2 minutes for task 1, 10 seconds for task 2, 10 seconds for task 3, and 30 minutes for task 4. (20 marks)</p></li></ol><h2 id="概述与思路"><a href="#概述与思路" class="headerlink" title="概述与思路"></a>概述与思路</h2><p>此任务是使用SQL语句完成数据库增删查改和模拟矩阵运算查看pgSQL运行速度。最后提交报告。</p><h2 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h2><img src="https://i.ibb.co/JH94rhq/4fc65e10ad244f378628d60f9fd94c93.png" alt="4fc65e10ad244f378628d60f9fd94c93">]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>python</tag>
+      
+      <tag>SQL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>CE325: Computer Security Lab2</title>
     <link href="/2024/12/09/CE325-Computer-Security-Lab2/"/>
     <url>/2024/12/09/CE325-Computer-Security-Lab2/</url>
