@@ -19,35 +19,14 @@ if (!CONFIG.google_analytics.only_pageview) {
   }
 } else {
   const sendPageView = () => {
+    if (!CONFIG.google_analytics || !CONFIG.google_analytics.tracking_id || typeof gtag !== 'function') {
+      return;
+    }
     if (CONFIG.hostname !== location.hostname) return;
-    const uid = localStorage.getItem('uid') || (Math.random() + '.' + Math.random());
-    localStorage.setItem('uid', uid);
-    fetch(
-      'https://www.google-analytics.com/mp/collect?' + new URLSearchParams({
-        api_secret    : CONFIG.google_analytics.measure_protocol_api_secret,
-        measurement_id: CONFIG.google_analytics.tracking_id
-      }),
-      {
-        method : 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          client_id: uid,
-          events   : [
-            {
-              name  : 'page_view',
-              params: {
-                page_location: location.href,
-                page_title   : document.title
-              }
-            }
-          ]
-        }),
-        mode: 'no-cors'
-      }
-    );
+    gtag('config', CONFIG.google_analytics.tracking_id, {
+      page_path: location.pathname + location.search + location.hash,
+      page_title: document.title
+    });
   };
   document.addEventListener('pjax:complete', sendPageView);
-  sendPageView();
 }
