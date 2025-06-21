@@ -114,7 +114,3 @@ sitemap:
   rel: false
   tags: true
   categories: true
-
-google_analytics:
-  enable: true
-  tracking_id: G-767VX4QX7W
