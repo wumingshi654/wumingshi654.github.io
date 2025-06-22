@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://wumingshi654.github.io/2025/06/22/%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/</loc>
+    
+    <lastmod>2025-06-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://wumingshi654.github.io/2025/06/21/%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E4%B8%8E%E8%BF%90%E7%AE%97/</loc>
     
     <lastmod>2025-06-21</lastmod>
@@ -49,7 +58,7 @@
 
   <url>
     <loc>https://wumingshi654.github.io/</loc>
-    <lastmod>2025-06-21</lastmod>
+    <lastmod>2025-06-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -58,22 +67,22 @@
 
   
   <url>
-    <loc>https://wumingshi654.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/</loc>
-    <lastmod>2025-06-21</lastmod>
+    <loc>https://wumingshi654.github.io/categories/408/</loc>
+    <lastmod>2025-06-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://wumingshi654.github.io/categories/408/</loc>
-    <lastmod>2025-06-21</lastmod>
+    <loc>https://wumingshi654.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/</loc>
+    <lastmod>2025-06-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://wumingshi654.github.io/categories/408/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/</loc>
-    <lastmod>2025-06-21</lastmod>
+    <lastmod>2025-06-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
