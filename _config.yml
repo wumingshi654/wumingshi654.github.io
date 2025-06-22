@@ -114,3 +114,19 @@ sitemap:
   rel: false
   tags: true
   categories: true
+
+robots:
+  user_agent: "*"
+  allow:
+    - /
+    - /archives/
+    - /page/
+    - /schedule/
+    - /tags/
+  disallow:
+    - /js/
+    - /css/
+    - /images/
+  sitemaps:
+    - /sitemap.xml
+    - /sitemap.txt
