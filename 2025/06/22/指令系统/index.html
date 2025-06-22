@@ -19,26 +19,28 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"wumingshi654.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.23.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="补码系统的根基是模运算 (Modular Arithmetic)，就像时钟一样。  一个 n 位的二进制系统，能表示的数的个数是 $2^n$。这个 $2^n$ 就是它的模 (Modulus)。 对于一个8位系统，模是 $2^8 &#x3D; 256$。你可以把它想象成一个有256个刻度的表盘，从0到255。当你从255再加1时，就会溢出并“回卷”到0。  在数学中，一个数 A 的加法逆元 (Additive">
+    <meta name="description" content="指令寻址和数据寻址指令寻址都是根据PC获取，顺序寻址时下一个地址就是PC+1(1条指令的长度)，跳跃寻址由本条指令给出PC的计算方式 数据寻址指令包括操作码，寻址特征和形式地址A  隐含寻址，没给出操作数的地址，如累加器ACC，操作数由其内部提供 立即寻址，指令字中的地址字段指出的不是操作数的地址，而是操作数本身，也称立即数，采用补码表示 直接寻址，形式地址A 就是操作数的直实地址EA 间接寻址，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="补码与模">
-<meta property="og:url" content="https://wumingshi654.github.io/2025/06/21/%E8%A1%A5%E7%A0%81%E4%B8%8E%E6%A8%A1/index.html">
+<meta property="og:title" content="指令系统">
+<meta property="og:url" content="https://wumingshi654.github.io/2025/06/22/%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="补码系统的根基是模运算 (Modular Arithmetic)，就像时钟一样。  一个 n 位的二进制系统，能表示的数的个数是 $2^n$。这个 $2^n$ 就是它的模 (Modulus)。 对于一个8位系统，模是 $2^8 &#x3D; 256$。你可以把它想象成一个有256个刻度的表盘，从0到255。当你从255再加1时，就会溢出并“回卷”到0。  在数学中，一个数 A 的加法逆元 (Additive">
+<meta property="og:description" content="指令寻址和数据寻址指令寻址都是根据PC获取，顺序寻址时下一个地址就是PC+1(1条指令的长度)，跳跃寻址由本条指令给出PC的计算方式 数据寻址指令包括操作码，寻址特征和形式地址A  隐含寻址，没给出操作数的地址，如累加器ACC，操作数由其内部提供 立即寻址，指令字中的地址字段指出的不是操作数的地址，而是操作数本身，也称立即数，采用补码表示 直接寻址，形式地址A 就是操作数的直实地址EA 间接寻址，">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-06-21T07:41:33.000Z">
-<meta property="article:modified_time" content="2025-06-21T08:03:57.202Z">
+<meta property="og:image" content="https://res.cloudinary.com/dkdhhe5fc/image/upload/v1750585543/36lj13_c504tu.png">
+<meta property="article:published_time" content="2025-06-22T08:48:45.000Z">
+<meta property="article:modified_time" content="2025-06-22T09:51:30.505Z">
 <meta property="article:author" content="wumingshi654">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://res.cloudinary.com/dkdhhe5fc/image/upload/v1750585543/36lj13_c504tu.png">
 
 
-<link rel="canonical" href="https://wumingshi654.github.io/2025/06/21/%E8%A1%A5%E7%A0%81%E4%B8%8E%E6%A8%A1/">
+<link rel="canonical" href="https://wumingshi654.github.io/2025/06/22/%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://wumingshi654.github.io/2025/06/21/%E8%A1%A5%E7%A0%81%E4%B8%8E%E6%A8%A1/","path":"2025/06/21/补码与模/","title":"补码与模"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://wumingshi654.github.io/2025/06/22/%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/","path":"2025/06/22/指令系统/","title":"指令系统"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>补码与模 | Hexo</title>
+<title>指令系统 | Hexo</title>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-767VX4QX7W"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -72,7 +74,7 @@
 
   
 
-  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
 <script src="/js/third-party/math/mathjax.js" defer></script>
 
 
@@ -139,7 +141,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%80%9C%E5%8F%96%E5%8F%8D%E5%8A%A0%E4%B8%80%E2%80%9D%E5%8F%AA%E6%98%AF%E4%B8%80%E4%B8%AA%E8%81%AA%E6%98%8E%E7%9A%84%E7%AE%97%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">“取反加一”只是一个聪明的算法</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%87%E4%BB%A4%E5%AF%BB%E5%9D%80%E5%92%8C%E6%95%B0%E6%8D%AE%E5%AF%BB%E5%9D%80"><span class="nav-number">1.</span> <span class="nav-text">指令寻址和数据寻址</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%AF%BB%E5%9D%80"><span class="nav-number">1.1.</span> <span class="nav-text">数据寻址</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9C%BA%E5%99%A8%E7%BA%A7%E4%BB%A3%E7%A0%81%E8%A1%A8%E7%A4%BA"><span class="nav-number">2.</span> <span class="nav-text">程序的机器级代码表示</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -185,7 +187,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://wumingshi654.github.io/2025/06/21/%E8%A1%A5%E7%A0%81%E4%B8%8E%E6%A8%A1/">
+    <link itemprop="mainEntityOfPage" href="https://wumingshi654.github.io/2025/06/22/%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -198,12 +200,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="补码与模 | Hexo">
+      <meta itemprop="name" content="指令系统 | Hexo">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          补码与模
+          指令系统
         </h1>
 
         <div class="post-meta-container">
@@ -215,7 +217,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2025-06-21 15:41:33 / 修改时间：16:03:57" itemprop="dateCreated datePublished" datetime="2025-06-21T15:41:33+08:00">2025-06-21</time>
+      <time title="创建时间：2025-06-22 16:48:45 / 修改时间：17:51:30" itemprop="dateCreated datePublished" datetime="2025-06-22T16:48:45+08:00">2025-06-22</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -223,7 +225,11 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">计算机组成原理</span></a>
+          <a href="/categories/408/" itemprop="url" rel="index"><span itemprop="name">408</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/408/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">计算机组成原理</span></a>
         </span>
     </span>
 
@@ -236,33 +242,26 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>补码系统的根基是<strong>模运算 (Modular Arithmetic)</strong>，就像时钟一样。</p>
+    <div class="post-body" itemprop="articleBody"><h2 id="指令寻址和数据寻址"><a href="#指令寻址和数据寻址" class="headerlink" title="指令寻址和数据寻址"></a>指令寻址和数据寻址</h2><p>指令寻址都是根据PC获取，顺序寻址时下一个地址就是PC+1(1条指令的长度)，跳跃寻址由本条指令给出PC的计算方式</p>
+<h3 id="数据寻址"><a href="#数据寻址" class="headerlink" title="数据寻址"></a>数据寻址</h3><p>指令包括操作码，寻址特征和形式地址A</p>
 <ul>
-<li>一个 n 位的二进制系统，能表示的数的个数是 $2^n$。这个 $2^n$ 就是它的<strong>模 (Modulus)</strong>。</li>
-<li>对于一个8位系统，模是 $2^8 = 256$。你可以把它想象成一个有256个刻度的表盘，从0到255。当你从255再加1时，就会溢出并“回卷”到0。</li>
+<li>隐含寻址，没给出操作数的地址，如累加器ACC，操作数由其内部提供</li>
+<li>立即寻址，指令字中的地址字段指出的不是操作数的地址，而是操作数本身，也称立即数，采用补码表示</li>
+<li>直接寻址，形式地址A 就是操作数的直实地址EA</li>
+<li>间接寻址，指令的地址字段给出的不是操作数的真正地址，而是操作数有效地址所在主存单元的地址，也就是操作数地址的地址</li>
+<li>寄存器寻址，与直接寻址的原理一样， 只是把访问主存改为访问寄存器(寄存器在CPU内部，访问速度最快)， 指令的地址字段给出的是操作数所在寄存器的编号</li>
+<li>寄存器间接寻址，指令字中的地址所指向的寄存器给出的不是一个操作数， 而是操作数所在主存单元的地址</li>
+<li>相对寻址，相对寻址是把PC的内容加上指令格式中的形式地址A而形成操作数的有效地址， 即EA =(PC) +A,其中A是相对于当前PC值的偏移量， 可正可负，补码表示。这么做的优点是相对地址是程序内部的相对地址，如程序存储到1000，A=10，那么数据就存储到1010，这样程序就可以任意浮动，不会因为改变到其他地址就找不到数据了</li>
+<li>基址寻址，基址寻址是指将基址寄存器(BR) 的内容加上指令字中的形式地址A而形成操作数的有效地址，即EA=(BR)+A。其中基址寄存器既可采用专用寄存器，又可指定某个通用寄存器作为基址寄存器，优点是寄存器可以拓展A的位数，进而扩大寻址范围， 在动态重定位中，程序被加载到内存的哪个位置是不确定的。 基址寻址允许程序在加载时，只需设置基址寄存器为程序的起始地址，程序内部的所有内存访问指令 (使用基址寻址的) 就能自动适应新的加载位置，实现代码的浮动。 现代操作系统中，进程通常拥有独立的数据段。  基址寄存器可以指向进程的数据段起始地址，方便程序访问其数据段内的变量和数据结构。 例如，C 语言中的全局变量和静态变量通常就存放在数据段中，可以使用基址寻址来访问。</li>
+<li>变址寻址，变址寄存器的值加上指令中给出的偏移量，它与上一个的区别是变址寻址的核心目的是<strong>方便对数组、字符串等连续存储的数据结构进行访问</strong>。<strong>变址寄存器通常用于存放索引值或下标值。</strong> 指令中的偏移量则表示数组或字符串的首地址（基地址），或者数组元素的固定偏移量。而变址寄存器在循环中频繁改变。基址寻址中基址寄存器的值指向程序首地址后不会轻易改变</li>
 </ul>
-<p>在数学中，一个数 <code>A</code> 的<strong>加法逆元 (Additive Inverse)</strong>，也就是它的相反数 <code>-A</code>，被定义为：</p>
-<blockquote>
-<p><strong><code>A + (-A) = 0</code></strong></p>
-</blockquote>
-<p>在补码这个模运算系统中，这个定义就变成了：</p>
-<blockquote>
-<p><strong><code>(A + (-A)) mod 2^n = 0</code></strong></p>
-</blockquote>
-<p>这意味着 <code>A + (-A)</code> 的和必须是 $2^n$ 的整数倍。最简单的情况就是，我们让 <code>A + (-A) = 2^n</code>。<br>所以，我们可以得到在补码系统中“求负”的数学定义：</p>
-<script type="math/tex; mode=display">(-A) = 2^n - A</script><h3 id="“取反加一”只是一个聪明的算法"><a href="#“取反加一”只是一个聪明的算法" class="headerlink" title="“取反加一”只是一个聪明的算法"></a>“取反加一”只是一个聪明的算法</h3><p>现在，最关键的一步来了：如何用计算机硬件高效地计算 <strong>$2^n - A$</strong> 呢？</p>
-<p>我们耍一个数学小花招，把公式变形一下：</p>
-<script type="math/tex; mode=display">2^n - A = (2^n - 1) - A + 1</script><p>让我们看看 <code>(2^n - 1)</code> 是什么：</p>
+<h2 id="程序的机器级代码表示"><a href="#程序的机器级代码表示" class="headerlink" title="程序的机器级代码表示"></a>程序的机器级代码表示</h2><p><img src="https://res.cloudinary.com/dkdhhe5fc/image/upload/v1750585543/36lj13_c504tu.png" alt=""></p>
 <ul>
-<li>在 n 位二进制中，$2^n$ 是 <code>1</code> 后面跟着 n 个 <code>0</code>（例如，8位时是 <code>1 0000 0000</code>）。</li>
-<li>那么，$2^n - 1$ 就是 <strong>n 个全为 <code>1</code> 的数</strong>（例如，8位时是 <code>1111 1111</code>）。</li>
+<li>\<reg\>: regsiter 寄存器，reg32表示32位寄存器</li>
+<li>\<mem\>: memory 内存</li>
+<li>\<con\>: constant 常数，\<con8\>表示8位常数<br>指令：</li>
+<li>mov，可以复制第二个操作数到第一个，允许reg&lt;-reg，reg&lt;-mem，mem&lt;-reg，reg&lt;-con，mem&lt;-con，不允许mem&lt;-mem。指令mov byte ptr [var], 5 表示mov是移动指令；byte是大小指示符，表示要操作的数据大小；ptr是指针指示符，表示<strong>紧跟在 <code>ptr</code> 后面的操作数是一个内存地址 (指针)</strong>，而不是立即数或寄存器名。[var]是内存寻址，5是要复制的操作数。所以整体意思就是把5复制到var指示的内存地址的一字节中</li>
 </ul>
-<p>当用一个全<code>1</code>的数去减另一个二进制数 <code>A</code> 时，效果就等同于<strong>对 <code>A</code> 的每一位按位取反</strong>。</p>
-<ul>
-<li>例如 (4位)：<code>1111 - 1010 = 0101</code>。<code>0101</code> 正是 <code>1010</code> 的按位取反。</li>
-</ul>
-<p>所以，我们的公式可以这样翻译：</p>
-<script type="math/tex; mode=display">(-A) = 2^n - A = \underbrace{(2^n - 1) - A}_{\text{按位取反}} + 1</script><p><strong>这证明了，“按位取反，末位加一”这个操作，从计算机电路的角度看，是实现数学定义 $(-A) = 2^n - A$ 的一个高效算法！</strong></p>
 
     </div>
 
@@ -276,13 +275,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2025/06/21/%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E4%B8%8E%E8%BF%90%E7%AE%97/" rel="prev" title="数据的表示与运算">
-                  <i class="fa fa-angle-left"></i> 数据的表示与运算
+                <a href="/2025/06/22/%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/" rel="prev" title="存储系统">
+                  <i class="fa fa-angle-left"></i> 存储系统
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2025/06/21/%E5%87%8F%E6%B3%95%E6%97%B6%E7%9A%84%E5%80%9F%E4%BD%8D%E6%A0%87%E5%BF%97CF/" rel="next" title="减法时的借位标志CF">
-                  减法时的借位标志CF <i class="fa fa-angle-right"></i>
+                <a href="/2025/06/22/C%E8%AF%AD%E8%A8%80%E4%B8%AD%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%AD%97%E8%8A%82%E6%95%B0/" rel="next" title="C语言中类型的字节数">
+                  C语言中类型的字节数 <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
