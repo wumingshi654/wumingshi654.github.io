@@ -5,11 +5,9 @@ Allow: /archives/
 Allow: /page/
 Allow: /schedule/
 Allow: /tags/
-Allow: /sitemap.xml
 
 Disallow: /js/
 Disallow: /css/
 Disallow: /images/
 
-Sitemap: /sitemap.xml
-Sitemap: /sitemap.txt
+Sitemap: https://wumingshi654.github.io/sitemap.xml
