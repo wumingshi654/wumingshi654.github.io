@@ -123,10 +123,5 @@ robots:
     - /page/
     - /schedule/
     - /tags/
-  disallow:
-    - /js/
-    - /css/
-    - /images/
   sitemaps:
-    - /sitemap.xml
-    - /sitemap.txt
+    - https://wumingshi654.github.io/sitemap.xml
