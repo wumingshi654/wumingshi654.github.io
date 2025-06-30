@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"wumingshi654.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.23.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="矩阵概念    特性 矩阵 (Matrix) 行列式 (Determinant)     本质 一个数表或阵列 (An array of numbers) 一个标量值或数字 (A scalar value)   形态 矩形，可以是 $m \times n$ 只能是方阵 ($n \times n$) 计算得出的   表示 $A &#x3D; \begin{pmatrix} \cdot &amp; \cdot">
+<meta property="og:type" content="website">
+<meta property="og:title" content="矩阵">
+<meta property="og:url" content="https://wumingshi654.github.io/%E6%95%B0%E5%AD%A6/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/%E7%9F%A9%E9%98%B5.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="矩阵概念    特性 矩阵 (Matrix) 行列式 (Determinant)     本质 一个数表或阵列 (An array of numbers) 一个标量值或数字 (A scalar value)   形态 矩形，可以是 $m \times n$ 只能是方阵 ($n \times n$) 计算得出的   表示 $A &#x3D; \begin{pmatrix} \cdot &amp; \cdot">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-06-29T11:02:59.000Z">
+<meta property="article:modified_time" content="2025-06-29T13:26:47.597Z">
+<meta property="article:author" content="wumingshi654">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://wumingshi654.github.io/%E6%95%B0%E5%AD%A6/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/%E7%9F%A9%E9%98%B5">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":true,"permalink":"https://wumingshi654.github.io/%E6%95%B0%E5%AD%A6/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/%E7%9F%A9%E9%98%B5.html","path":"数学/线性代数/矩阵.html","title":"矩阵"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>矩阵 | Hexo
+</title>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-767VX4QX7W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-767VX4QX7W');
+</script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Hexo</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">矩阵概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5%E8%AE%A1%E7%AE%97"><span class="nav-number">2.</span> <span class="nav-text">矩阵计算</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5%E7%9A%84%E7%A7%A9"><span class="nav-number">2.1.</span> <span class="nav-text">矩阵的秩</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%8E%E7%BA%BF%E6%80%A7%E5%8F%98%E6%8D%A2%E7%9A%84%E8%A7%92%E5%BA%A6"><span class="nav-number">2.1.1.</span> <span class="nav-text">从线性变换的角度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E7%9F%A9%E9%98%B5%E7%9A%84%E7%A7%A9"><span class="nav-number">2.1.2.</span> <span class="nav-text">计算矩阵的秩</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5%E7%9A%84%E7%A7%A9%E5%BA%94%E7%94%A8"><span class="nav-number">2.1.3.</span> <span class="nav-text">矩阵的秩应用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5%E7%A7%A9%E7%9A%84%E9%87%8D%E8%A6%81%E6%80%A7%E8%B4%A8"><span class="nav-number">2.1.4.</span> <span class="nav-text">矩阵秩的重要性质</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">wumingshi654</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner page posts-expand">
+
+
+    
+    
+    
+    <div class="post-block" lang="zh-CN"><header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">矩阵
+</h1>
+
+<div class="post-meta-container">
+  <ul class="breadcrumb">
+            <li><a href="/%E6%95%B0%E5%AD%A6/">数学</a></li>
+            <li><a href="/%E6%95%B0%E5%AD%A6/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">线性代数</a></li>
+            <li>矩阵</li>
+  </ul>
+</div>
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+          <h2 id="矩阵概念"><a href="#矩阵概念" class="headerlink" title="矩阵概念"></a>矩阵概念</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">特性</th>
+<th style="text-align:left"><strong>矩阵 (Matrix)</strong></th>
+<th style="text-align:left"><strong>行列式 (Determinant)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>本质</strong></td>
+<td style="text-align:left">一个<strong>数表</strong>或<strong>阵列</strong> (An array of numbers)</td>
+<td style="text-align:left">一个<strong>标量值</strong>或<strong>数字</strong> (A scalar value)</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>形态</strong></td>
+<td style="text-align:left">矩形，可以是 $m \times n$</td>
+<td style="text-align:left">只能是<strong>方阵</strong> ($n \times n$) 计算得出的</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>表示</strong></td>
+<td style="text-align:left">$A = \begin{pmatrix} \cdot &amp; \cdot \ \cdot &amp; \cdot \end{pmatrix}$</td>
+<td style="text-align:left">$\det(A) = \begin{vmatrix} \cdot &amp; \cdot \ \cdot &amp; \cdot \end{vmatrix}$</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>意义</strong></td>
+<td style="text-align:left">描述一个<strong>线性变换</strong>或存储数据</td>
+<td style="text-align:left">描述线性变换对<strong>体积/面积的缩放比例</strong>和<strong>方向</strong></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>核心应用</strong></td>
+<td style="text-align:left">解线性方程组、表示线性变换</td>
+<td style="text-align:left">判断矩阵是否<strong>可逆</strong>、求解特征值</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>运算</strong></td>
+<td style="text-align:left">加、减、乘等，结果通常是矩阵</td>
+<td style="text-align:left">拥有代数性质，但本身是数值，不能互相运算</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li><strong>矩阵</strong>就像一辆“汽车”。它是一个实体，有自己的结构（引擎、轮子等），可以执行动作（前进、转弯）。</li>
+<li><strong>行列式</strong>就像这辆汽车的“排量”或“最高时速”。它不是汽车本身，而是描述汽车性能的一个关键<strong>数字参数</strong>。通过这个参数，你可以了解汽车的一些重要特性（比如动力强不强），但你不能开着“排量”上路。<br>在线性代数中，矩阵表示了线性变换，这是线性代数最深刻的观点。任何从一个向量空间到另一个向量空间的<strong>线性变换 (Linear Transformation)</strong> 都可以用一个矩阵来表示。当你用一个矩阵乘以一个向量时，实际上就是对这个向量进行了一次线性变换（如旋转、缩放、剪切、投影等）。</li>
+</ul>
+<h2 id="矩阵计算"><a href="#矩阵计算" class="headerlink" title="矩阵计算"></a>矩阵计算</h2><ul>
+<li><strong>加法/减法：</strong> 只有同型矩阵（维度相同）才能相加减，对应元素相加减。</li>
+<li><strong>数乘：</strong> 一个数(标量)乘以矩阵，等于这个数乘以矩阵的每一个元素。</li>
+<li><strong>矩阵向量乘法</strong>：与上面区分，向量是$i \times 1(列向量)$或$1 \times i(行向量)$格式，且有以下规律:<ul>
+<li>矩阵 $\times$ 向量 $\rightarrow$ 向量</li>
+<li>内积：行向量 $\times$ 列向量 $\rightarrow$ 数（标量）</li>
+<li>外积：$(m \times 1)$ 矩阵 $\times$ $(1 \times n)$ 矩阵 $\rightarrow$ $(m \times n)$ 矩阵（秩为1的矩阵，如下）<script type="math/tex; mode=display">
+A = \boldsymbol{u}\boldsymbol{v}^T = \begin{pmatrix} u_1 \\ u_2 \\ \vdots \\ u_m \end{pmatrix} \begin{pmatrix} v_1 & v_2 & \dots & v_n \end{pmatrix} = \begin{pmatrix}
+u_1v_1 & u_1v_2 & \dots & u_1v_n \\
+u_2v_1 & u_2v_2 & \dots & u_2v_n \\
+\vdots & \vdots & \ddots & \vdots \\
+u_mv_1 & u_mv_2 & \dots & u_mv_n
+\end{pmatrix}</script></li>
+</ul>
+</li>
+<li><strong>矩阵乘法：</strong> 最重要也最独特的运算。一个 $m \times n$ 矩阵 $A$ 只能与一个 $n \times p$ 矩阵 $B$ 相乘，得到一个 $m \times p$ 矩阵 $C$。它不满足交换律（即 $AB \neq BA$ 是常态）。</li>
+<li><strong>矩阵的转置 ($A^T$)：</strong> 将矩阵的行和列互换。</li>
+<li><strong>行列式</strong>：记作 $\det(A)$ 或 $|A|$。<strong> $\det(A) \neq 0$ 是判断方阵 $A$ </strong>可逆**的充要条件。</li>
+<li><strong>矩阵的逆</strong>：对于方阵 $A$，如果存在一个方阵 $B$ 使得 $AB = BA = E$（单位矩阵），则称 $A$ 是可逆的，并称 $B$ 是 $A$ 的逆矩阵，记作 $A^{-1}$。<h3 id="矩阵的秩"><a href="#矩阵的秩" class="headerlink" title="矩阵的秩"></a>矩阵的秩</h3>矩阵中<strong>线性无关</strong>的行（或列）的最大数目。它揭示了矩阵所代表的线性变换“压缩”空间的程度。对于任何一个矩阵，其<strong>行秩永远等于列秩</strong>。因此，我们无需区分它们，直接统称为<strong>矩阵的秩</strong>。<script type="math/tex; mode=display">A = \begin{pmatrix} 1 & 2 & 3 \\ 2 & 4 & 6 \\ 3 & 1 & 4 \end{pmatrix}</script></li>
+<li>观察行向量：第二行是第一行的2倍（$R_2 = 2R_1$），所以这三个行向量是线性相关的。第一行和第三行是线性无关的。因此，线性无关的行向量最多有2个，行秩为2。</li>
+<li>观察列向量：可以验证，列向量中任意两个都是线性无关的，但三个列向量是线性相关的（例如 $C_3 = C_1 + C_2$）。因此，线性无关的列向量最多有2个，列秩为2。</li>
+<li><p>结论：矩阵 $A$ 的秩为2，记作 $\text{rank}(A) = 2$ 或 $r(A)=2$。</p>
+<h4 id="从线性变换的角度"><a href="#从线性变换的角度" class="headerlink" title="从线性变换的角度"></a>从线性变换的角度</h4><p>每个 $m \times n$ 的矩阵 $A$ 都定义了一个从 $n$ 维空间 $\mathbb{R}^n$ 到 $m$ 维空间 $\mathbb{R}^m$ 的线性变换 $T(\boldsymbol{x}) = A\boldsymbol{x}$。</p>
+</li>
+<li><p><strong>像 (Image)</strong>：所有可能的输出向量 $A\boldsymbol{x}$ 构成的集合，也称为<strong>列空间 (矩阵A只能与列向量相乘)</strong>，记作 $\text{Im}(A)$ 或 $C(A)$。</p>
+</li>
+<li><strong>秩的定义</strong>：矩阵 $A$ 的秩，就是其<strong>像空间的维数</strong>。</li>
+</ul>
+<p>这个定义揭示了秩的几何意义：<strong>秩代表了经过矩阵变换后，原始空间被“压缩”到了一个几维的空间里</strong>。</p>
+<h4 id="计算矩阵的秩"><a href="#计算矩阵的秩" class="headerlink" title="计算矩阵的秩"></a>计算矩阵的秩</h4><p>最常用和最系统的方法是<strong>高斯消元法 (Gaussian Elimination)</strong>，即对矩阵进行<strong>初等行变换</strong>。</p>
+<p><strong>核心原理</strong>：初等行变换不改变矩阵的秩。</p>
+<p><strong>步骤：</strong></p>
+<ol>
+<li>对矩阵 $A$ 进行一系列的初等行变换（交换两行、某行乘以非零数、某行加上另一行的倍数）。</li>
+<li>将矩阵化为<strong>行阶梯形矩阵 (Row Echelon Form)</strong>。</li>
+<li>阶梯形矩阵中<strong>非零行的数目</strong>就是原矩阵的秩。</li>
+</ol>
+<p><strong>例子：</strong> 计算下面矩阵 $B$ 的秩。</p>
+<script type="math/tex; mode=display">B = \begin{pmatrix} 1 & 2 & 1 & 0 \\ 2 & 4 & 3 & 1 \\ 3 & 6 & 2 & -1 \end{pmatrix}</script><p>进行初等行变换：</p>
+<script type="math/tex; mode=display">\xrightarrow{R_2 - 2R_1} \xrightarrow{R_3 - 3R_1} \begin{pmatrix} 1 & 2 & 1 & 0 \\ 0 & 0 & 1 & 1 \\ 0 & 0 & -1 & -1 \end{pmatrix}</script><script type="math/tex; mode=display">\xrightarrow{R_3 + R_2} \begin{pmatrix} 1 & 2 & 1 & 0 \\ 0 & 0 & 1 & 1 \\ 0 & 0 & 0 & 0 \end{pmatrix}</script><p>最终得到的阶梯形矩阵有2个非零行。因此，$\text{rank}(B) = 2$。</p>
+<h4 id="矩阵的秩应用"><a href="#矩阵的秩应用" class="headerlink" title="矩阵的秩应用"></a>矩阵的秩应用</h4><ol>
+<li>判断线性方程组解的情况<br>对于线性方程组 $A\boldsymbol{x} = \boldsymbol{b}$，设 $A$ 是系数矩阵，$[A|\boldsymbol{b}]$ 是增广矩阵。<ul>
+<li><strong>无解</strong>：当 $\text{rank}(A) &lt; \text{rank}([A|\boldsymbol{b}])$ 时。这表示增广矩阵多出了“新的信息”，导致方程之间产生矛盾。</li>
+<li><strong>有解</strong>：当 $\text{rank}(A) = \text{rank}([A|\boldsymbol{b}]) = r$ 时。<ul>
+<li><strong>唯一解</strong>：当 $r = n$（$n$ 是未知数/列的个数）时。此时矩阵被称为<strong>满秩</strong>。</li>
+<li><strong>无穷多解</strong>：当 $r &lt; n$ 时。解的“自由度”为 $n - r$。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>判断矩阵是否可逆<br>对于一个 $n \times n$ 的方阵 $A$：</p>
+<ul>
+<li>$A$ <strong>可逆</strong>（或称非奇异） $\iff$ $\text{rank}(A) = n$（满秩）。</li>
+<li>$A$ <strong>不可逆</strong>（或称奇异） $\iff$ $\text{rank}(A) &lt; n$（降秩）。<h4 id="矩阵秩的重要性质"><a href="#矩阵秩的重要性质" class="headerlink" title="矩阵秩的重要性质"></a>矩阵秩的重要性质</h4>设 $A$ 是一个 $m \times n$ 的矩阵，$\text{rank}(A) = r$。</li>
+</ul>
+</li>
+<li><p><strong>范围</strong>：$0 \le r \le \min(m, n)$。秩不会超过其行数或列数。</p>
+</li>
+<li><strong>零矩阵</strong>：$\text{rank}(A) = 0 \iff A$ 是零矩阵。</li>
+<li><strong>转置</strong>：$\text{rank}(A^T) = \text{rank}(A)$。</li>
+<li><strong>乘积</strong>：$\text{rank}(AB) \le \min(\text{rank}(A), \text{rank}(B))$。乘积的秩不会超过任何一个因子的秩。</li>
+<li><strong>和</strong>：$\text{rank}(A+B) \le \text{rank}(A) + \text{rank}(B)$。</li>
+<li><strong>与可逆矩阵相乘</strong>：如果 $P$ 和 $Q$ 分别是 $m \times m$ 和 $n \times n$ 的可逆矩阵，则 $\text{rank}(PAQ) = \text{rank}(A)$。这也是为什么初等变换不改变秩的原因（因为每次变换相当于左乘一个可逆的初等矩阵，23.5考察）。这三种初等行变换是：<ol>
+<li>交换两行。</li>
+<li>将某一行乘以一个非零常数。</li>
+<li>将某一行乘以一个常数加到另一行上。</li>
+</ol>
+</li>
+</ol>
+<p>矩阵的秩，本质上是其行向量组（或列向量组）的极大线性无关组的大小。<br>当我们用一个可逆矩阵 $P$ 左乘矩阵 $M$ 得到 $PM$ 时，新矩阵 $PM$ 的<strong>每一行</strong>都是原矩阵 $M$ 的所有行的<strong>一个线性组合</strong>。<br>关键点在于，因为 $P$ 是<strong>可逆</strong>的，这个线性组合的过程是<strong>双向无损</strong>的。</p>
+<ul>
+<li><strong>无损</strong>：如果原来 $M$ 的某些行是线性无关的，那么经过 $P$ 的线性组合后，得到的新行也一定是线性无关的。因为如果新行线性相关了，我们就可以通过逆矩阵 $P^{-1}$ 把它变换回去，推出原来那些行也是线性相关的，这就产生了矛盾。</li>
+<li><strong>不增维</strong>：反之，如果原来 $M$ 的某些行是线性相关的，那么它们经过线性组合后，得到的新行也必然是线性相关的。它不可能“凭空”创造出新的、独立的维度。</li>
+</ul>
+<p>综上，左乘一个可逆矩阵 $P$ 只是对 $M$ 的行向量空间做了一次“换基”，或者说换了一种“表达方式”，但没有改变这个向量空间的内在维度。空间的维度就是秩，所以秩不变。</p>
+
+      </div>
+      
+      
+      
+    </div>
+  <ul class="breadcrumb">
+            <li><a href="/%E6%95%B0%E5%AD%A6/">数学</a></li>
+            <li><a href="/%E6%95%B0%E5%AD%A6/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">线性代数</a></li>
+            <li>矩阵</li>
+  </ul>
+
+    
+    
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">wumingshi654</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

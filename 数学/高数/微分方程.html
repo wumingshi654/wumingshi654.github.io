@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"wumingshi654.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.23.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="微分方程微分方程将自变量(如x)，因变量(f(x))，导数(f’(x))联系起来，描述事物在任何一个瞬间“应该如何变化”例如车辆当前速度为dy&#x2F;dt，移动距离为y，存在一条规则：当前的速度，永远是你距离起点的路程的两倍，即 \frac{dy}{dt} &#x3D; 2y这就是微分方程解这个方程就是求y(t)。这个函数必须满足一个条件：无论你把哪个时间 t 和对应算出的 y(t) 代入，上面那个“速度&#x3D;2倍位">
+<meta property="og:type" content="website">
+<meta property="og:title" content="微分方程">
+<meta property="og:url" content="https://wumingshi654.github.io/%E6%95%B0%E5%AD%A6/%E9%AB%98%E6%95%B0/%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="微分方程微分方程将自变量(如x)，因变量(f(x))，导数(f’(x))联系起来，描述事物在任何一个瞬间“应该如何变化”例如车辆当前速度为dy&#x2F;dt，移动距离为y，存在一条规则：当前的速度，永远是你距离起点的路程的两倍，即 \frac{dy}{dt} &#x3D; 2y这就是微分方程解这个方程就是求y(t)。这个函数必须满足一个条件：无论你把哪个时间 t 和对应算出的 y(t) 代入，上面那个“速度&#x3D;2倍位">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-06-28T14:21:25.000Z">
+<meta property="article:modified_time" content="2025-06-29T05:56:47.861Z">
+<meta property="article:author" content="wumingshi654">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://wumingshi654.github.io/%E6%95%B0%E5%AD%A6/%E9%AB%98%E6%95%B0/%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":true,"permalink":"https://wumingshi654.github.io/%E6%95%B0%E5%AD%A6/%E9%AB%98%E6%95%B0/%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B.html","path":"数学/高数/微分方程.html","title":"微分方程"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>微分方程 | Hexo
+</title>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-767VX4QX7W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-767VX4QX7W');
+</script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Hexo</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B"><span class="nav-number">1.</span> <span class="nav-text">微分方程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B"><span class="nav-number">1.1.</span> <span class="nav-text">常微分方程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B"><span class="nav-number">1.2.</span> <span class="nav-text">线性微分方程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E9%98%B6%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E6%B1%82%E8%A7%A3"><span class="nav-number">1.3.</span> <span class="nav-text">一阶微分方程求解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%8F%AF%E5%88%86%E7%A6%BB%E6%96%B9%E7%A8%8B"><span class="nav-number">1.3.1.</span> <span class="nav-text">一、可分离方程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E4%B8%80%E9%98%B6%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B"><span class="nav-number">1.3.2.</span> <span class="nav-text">二、一阶线性方程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E9%BD%90%E6%AC%A1%E6%96%B9%E7%A8%8B"><span class="nav-number">1.3.3.</span> <span class="nav-text">三、齐次方程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E6%81%B0%E5%BD%93%E6%96%B9%E7%A8%8B"><span class="nav-number">1.3.4.</span> <span class="nav-text">四、恰当方程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E4%BC%AF%E5%8A%AA%E5%88%A9%E6%96%B9%E7%A8%8B"><span class="nav-number">1.3.5.</span> <span class="nav-text">五、伯努利方程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E5%8F%AF%E9%99%8D%E9%98%B6%E7%9A%84%E4%BA%8C%E9%98%B6%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B"><span class="nav-number">1.3.6.</span> <span class="nav-text">六、可降阶的二阶微分方程</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%B1%BB%E5%9E%8B%E4%B8%80%EF%BC%9A%E6%96%B9%E7%A8%8B%E4%B8%AD%E4%B8%8D%E6%98%BE%E5%90%AB-y-%E5%BD%A2%E5%A6%82-F-x-y%E2%80%99-y%E2%80%99%E2%80%99-0"><span class="nav-number">1.3.6.1.</span> <span class="nav-text">类型一：方程中不显含 y (形如 $F(x, y’, y’’) &#x3D; 0$)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%B1%BB%E5%9E%8B%E4%BA%8C%EF%BC%9A%E6%96%B9%E7%A8%8B%E4%B8%AD%E4%B8%8D%E6%98%BE%E5%90%AB-x-%E5%BD%A2%E5%A6%82-F-y-y%E2%80%99-y%E2%80%99%E2%80%99-0"><span class="nav-number">1.3.6.2.</span> <span class="nav-text">类型二：方程中不显含 x (形如 $F(y, y’, y’’) &#x3D; 0$)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AB%98%E9%98%B6%E7%BA%BF%E6%80%A7%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E6%B1%82%E8%A7%A3"><span class="nav-number">1.4.</span> <span class="nav-text">高阶线性微分方程求解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E6%B1%82%E8%A7%A3%E7%AD%96%E7%95%A5%EF%BC%9A%E5%88%86%E8%80%8C%E6%B2%BB%E4%B9%8B"><span class="nav-number">1.4.1.</span> <span class="nav-text">核心求解策略：分而治之</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86%EF%BC%9A%E6%B1%82%E9%BD%90%E6%AC%A1%E8%A7%A3-y-c-%E7%89%B9%E5%BE%81%E6%96%B9%E7%A8%8B%E6%B3%95"><span class="nav-number">1.4.1.1.</span> <span class="nav-text">第一部分：求齐次解 $y_c$ (特征方程法)</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Case-1-%E4%B8%8D%E7%9B%B8%E7%AD%89%E7%9A%84%E5%AE%9E%E6%95%B0%E6%A0%B9-Distinct-Real-Roots"><span class="nav-number">1.4.1.1.1.</span> <span class="nav-text">Case 1: 不相等的实数根 (Distinct Real Roots)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Case-2-%E6%9C%89%E9%87%8D%E6%A0%B9%E7%9A%84%E5%AE%9E%E6%95%B0%E6%A0%B9-Repeated-Real-Roots"><span class="nav-number">1.4.1.1.2.</span> <span class="nav-text">Case 2: 有重根的实数根 (Repeated Real Roots)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Case-3-%E5%85%B1%E8%BD%AD%E5%A4%8D%E6%95%B0%E6%A0%B9-Complex-Conjugate-Roots"><span class="nav-number">1.4.1.1.3.</span> <span class="nav-text">Case 3: 共轭复数根 (Complex Conjugate Roots)</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E9%83%A8%E5%88%86%EF%BC%9A%E6%B1%82%E7%89%B9%E8%A7%A3-y-p"><span class="nav-number">1.4.1.2.</span> <span class="nav-text">第二部分：求特解 $y_p$</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80%EF%BC%9A%E5%BE%85%E5%AE%9A%E7%B3%BB%E6%95%B0%E6%B3%95-Method-of-Undetermined-Coefficients"><span class="nav-number">1.4.1.2.1.</span> <span class="nav-text">方法一：待定系数法 (Method of Undetermined Coefficients)</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%B9%E5%BE%81%E6%96%B9%E7%A8%8B"><span class="nav-number">1.5.</span> <span class="nav-text">特征方程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8E%A8%E5%AF%BC%E8%BF%87%E7%A8%8B"><span class="nav-number">1.5.1.</span> <span class="nav-text">推导过程</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">wumingshi654</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner page posts-expand">
+
+
+    
+    
+    
+    <div class="post-block" lang="zh-CN"><header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">微分方程
+</h1>
+
+<div class="post-meta-container">
+  <ul class="breadcrumb">
+            <li><a href="/%E6%95%B0%E5%AD%A6/">数学</a></li>
+            <li><a href="/%E6%95%B0%E5%AD%A6/%E9%AB%98%E6%95%B0/">高数</a></li>
+            <li>微分方程</li>
+  </ul>
+</div>
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+          <h2 id="微分方程"><a href="#微分方程" class="headerlink" title="微分方程"></a>微分方程</h2><p>微分方程将自变量(如x)，因变量(f(x))，导数(f’(x))联系起来，描述事物在任何一个瞬间“应该如何变化”<br>例如车辆当前速度为dy/dt，移动距离为y，存在一条规则：当前的速度，永远是你距离起点的路程的两倍，即</p>
+<script type="math/tex; mode=display">\frac{dy}{dt} = 2y</script><p>这就是微分方程<br>解这个方程就是求y(t)。这个函数必须满足一个条件：无论你把哪个时间 t 和对应算出的 y(t) 代入，上面那个“速度=2倍位置”的规则都必须成立。<br>对于上面的例子，它的解是 <code>y(t) = C * e^(2t)</code>（其中 C 是一个常数，表示出发点）</p>
+<h3 id="常微分方程"><a href="#常微分方程" class="headerlink" title="常微分方程"></a>常微分方程</h3><p>这个概念是用来区分“自变量”的数量的。常微分方程仅与一个变量有关，相对的偏微分方程与多个变量有关</p>
+<h3 id="线性微分方程"><a href="#线性微分方程" class="headerlink" title="线性微分方程"></a>线性微分方程</h3><p>一个微分方程被称为<strong>线性</strong>的，必须满足以下两个严格条件：</p>
+<ol>
+<li><strong>未知函数及其各阶导数都必须是一次幂</strong>。不能出现像 <code>y²</code>, <code>(y&#39;)³</code> 这样的项。</li>
+<li><strong>各项的系数只能是自变量的函数，或者常数</strong>。不能包含未知函数本身。不能出现像 <code>y * y&#39;</code>，<code>sin(y)</code>，<code>e^y</code> 这样的项。</li>
+</ol>
+<p>通用形式如下（以n阶线性常微分方程为例）：</p>
+<script type="math/tex; mode=display">a_n(x)\frac{d^ny}{dx^n} + a_{n-1}(x)\frac{d^{n-1}y}{dx^{n-1}} + \cdots + a_1(x)\frac{dy}{dx} + a_0(x)y = g(x)</script><p>只要方程能写成这种形式，它就是线性的。</p>
+<h3 id="一阶微分方程求解"><a href="#一阶微分方程求解" class="headerlink" title="一阶微分方程求解"></a>一阶微分方程求解</h3><p>求解思路：</p>
+<ol>
+<li><strong>它是最简单的“可分离变量”方程吗？</strong></li>
+<li><strong>如果不是，它能写成“一阶线性”方程的标准形式吗？</strong></li>
+<li><strong>如果还不是，它是否是“齐次”方程？</strong> (所有项的次数相同)</li>
+<li><strong>如果也不是，它是否是“恰当/全微分”方程？</strong> (需要一个简单的检验)</li>
+<li><strong>最后，它是不是可以转化为线性方程的“伯努利”方程？</strong></li>
+</ol>
+<h4 id="一、可分离方程"><a href="#一、可分离方程" class="headerlink" title="一、可分离方程"></a>一、可分离方程</h4><p>方程可以被代数变形，写成 <code>一边只含y和dy，另一边只含x和dx</code> 的形式。然后对两边分别积分</p>
+<ul>
+<li><p><strong>求解步骤</strong>：</p>
+<ol>
+<li><strong>分离变量</strong>：通过乘除法，将所有含 <code>y</code> 的项（包括<code>dy</code>）移到一边，所有含 <code>x</code> 的项（包括<code>dx</code>）移到另一边。<script type="math/tex; mode=display">\frac{1}{h(y)}dy = g(x)dx</script></li>
+<li><strong>两边积分</strong>：对变形后的方程两边同时积分。<script type="math/tex; mode=display">\int \frac{1}{h(y)}dy = \int g(x)dx</script></li>
+<li><strong>求解</strong>：计算出积分，得到一个包含 <code>x</code>、<code>y</code> 和一个任意常数 <code>C</code> 的隐式或显式解。</li>
+</ol>
+</li>
+<li><p><strong>详细示例</strong>：求解 $\frac{dy}{dx} = \frac{x^2}{y}$</p>
+<ol>
+<li><strong>分离变量</strong>：等式两边同乘以 <code>y</code> 和 <code>dx</code>。<script type="math/tex; mode=display">y \cdot dy = x^2 \cdot dx</script></li>
+<li><strong>两边积分</strong>：<script type="math/tex; mode=display">\int y \, dy = \int x^2 \, dx</script></li>
+<li><strong>求解</strong>：计算积分。<script type="math/tex; mode=display">\frac{1}{2}y^2 = \frac{1}{3}x^3 + C</script>这就是方程的通解（隐式解）。<h4 id="二、一阶线性方程"><a href="#二、一阶线性方程" class="headerlink" title="二、一阶线性方程"></a>二、一阶线性方程</h4>方程可以写成如下标准形式，其中 <code>y</code> 和 <code>y&#39;</code> 都是一次幂。<script type="math/tex; mode=display">\frac{dy}{dx} + P(x)y = Q(x)</script></li>
+</ol>
+</li>
+<li><p><strong>核心思想</strong>：<br>  找到一个特殊的函数——<strong>积分因子 (Integrating Factor)</strong>，乘到方程两边后，使方程的左边恰好能凑成一个积的导数 <code>(μ(x)y)&#39;</code> 的形式，从而可以积分。</p>
+</li>
+<li><p><strong>求解步骤</strong>：</p>
+<ol>
+<li><strong>化为标准形式</strong>：确保方程是 <code>y&#39; + P(x)y = Q(x)</code> 的形式，并确定 <code>P(x)</code> 和 <code>Q(x)</code>。</li>
+<li><strong>计算积分因子</strong> $\mu(x)$：<script type="math/tex; mode=display">\mu(x) = e^{\int P(x)dx}</script>(计算这个积分时，不需要加常数<code>C</code>)</li>
+<li><strong>方程两边同乘</strong> $\mu(x)$：<script type="math/tex; mode=display">\mu(x)\frac{dy}{dx} + \mu(x)P(x)y = \mu(x)Q(x)</script></li>
+<li><strong>左侧凑成积的导数</strong>：此时左边自动等于 $(\mu(x)y)’$。<script type="math/tex; mode=display">\frac{d}{dx}(\mu(x)y) = \mu(x)Q(x)</script></li>
+<li><strong>两边积分求解</strong> <code>y</code>：<script type="math/tex; mode=display">\mu(x)y = \int \mu(x)Q(x)dx + C</script><script type="math/tex; mode=display">y = \frac{1}{\mu(x)}\left[ \int \mu(x)Q(x)dx + C \right]</script></li>
+</ol>
+</li>
+<li><p><strong>详细示例</strong>：求解 $x\frac{dy}{dx} - 2y = x^2$</p>
+<ol>
+<li><strong>化为标准形式</strong>：两边同除以 <code>x</code>。<script type="math/tex; mode=display">\frac{dy}{dx} - \frac{2}{x}y = x</script>这里，$P(x) = -\frac{2}{x}$，$Q(x) = x$。</li>
+<li><strong>计算积分因子</strong>：<script type="math/tex; mode=display">\mu(x) = e^{\int -\frac{2}{x}dx} = e^{-2\ln|x|} = e^{\ln|x^{-2}|} = x^{-2} = \frac{1}{x^2}</script></li>
+<li><strong>两边同乘</strong> $\mu(x) = \frac{1}{x^2}$：<script type="math/tex; mode=display">\frac{1}{x^2}\frac{dy}{dx} - \frac{2}{x^3}y = \frac{1}{x}</script></li>
+<li><strong>左侧凑成积的导数</strong>：<script type="math/tex; mode=display">\frac{d}{dx}\left(\frac{1}{x^2}y\right) = \frac{1}{x}</script></li>
+<li><strong>两边积分求解</strong> <code>y</code>：<script type="math/tex; mode=display">\frac{1}{x^2}y = \int \frac{1}{x}dx = \ln|x| + C</script><script type="math/tex; mode=display">y = x^2(\ln|x| + C)</script></li>
+</ol>
+</li>
+</ul>
+<h4 id="三、齐次方程"><a href="#三、齐次方程" class="headerlink" title="三、齐次方程"></a>三、齐次方程</h4><p>方程可以写成 $\frac{dy}{dx} = F\left(\frac{y}{x}\right)$ 的形式。一个快捷的判断方法是：如果将 <code>x</code> 替换为 <code>tx</code>，<code>y</code> 替换为 <code>ty</code>，方程不变，则为齐次方程。注意：此处的“齐次”与线性方程中的“齐次项”意义不同。这里的齐次指的是函数 <code>f(x, y)</code> 的性质。</p>
+<ul>
+<li><p><strong>核心思想</strong>：<br>  通过变量代换 $v = \frac{y}{x}$ (即 $y=vx$)，将原方程转化为一个关于 <code>v</code> 和 <code>x</code> 的<strong>可分离变量方程</strong>。</p>
+</li>
+<li><p><strong>求解步骤</strong>：</p>
+<ol>
+<li><strong>判断与变形</strong>：确认方程是齐次的，并将其写成 $\frac{dy}{dx} = F(\frac{y}{x})$ 的形式。</li>
+<li><strong>变量代换</strong>：令 $y = vx$。根据乘法法则，有 $\frac{dy}{dx} = v + x\frac{dv}{dx}$。</li>
+<li><strong>替换原方程</strong>：将 <code>y</code> 和 <code>dy/dx</code> 都用含 <code>v</code> 和 <code>x</code> 的表达式替换。<script type="math/tex; mode=display">v + x\frac{dv}{dx} = F(v)</script></li>
+<li><strong>分离变量求解</strong>：上式整理后一定是可分离变量的。<script type="math/tex; mode=display">x\frac{dv}{dx} = F(v) - v \implies \frac{dv}{F(v)-v} = \frac{dx}{x}</script>对两边积分。</li>
+<li><strong>换回原变量</strong>：解出 <code>v</code> 后，用 $v = \frac{y}{x}$ 换回去，得到最终解。</li>
+</ol>
+</li>
+<li><p><strong>详细示例</strong>：求解 $\frac{dy}{dx} = \frac{x+y}{x}$</p>
+<ol>
+<li><strong>判断与变形</strong>：<script type="math/tex; mode=display">\frac{dy}{dx} = 1 + \frac{y}{x}</script>这是 $F(y/x)$ 的形式，是齐次方程。</li>
+<li><strong>变量代换</strong>：令 $y=vx$，则 $\frac{dy}{dx} = v + x\frac{dv}{dx}$。</li>
+<li><strong>替换原方程</strong>：<script type="math/tex; mode=display">v + x\frac{dv}{dx} = 1 + v</script></li>
+<li><strong>分离变量求解</strong>：<script type="math/tex; mode=display">x\frac{dv}{dx} = 1 \implies dv = \frac{dx}{x}</script>两边积分：<script type="math/tex; mode=display">\int dv = \int \frac{dx}{x} \implies v = \ln|x| + C</script></li>
+<li><strong>换回原变量</strong>：将 $v = y/x$ 代回。<script type="math/tex; mode=display">\frac{y}{x} = \ln|x| + C \implies y = x(\ln|x| + C)</script><h4 id="四、恰当方程"><a href="#四、恰当方程" class="headerlink" title="四、恰当方程"></a>四、恰当方程</h4>也叫全微分方程。方程写成 $M(x, y)dx + N(x, y)dy = 0$ 的形式后，满足一个<strong>恰当性检验</strong>：<script type="math/tex; mode=display">\frac{\partial M}{\partial y} = \frac{\partial N}{\partial x}</script></li>
+</ol>
+</li>
+<li><p><strong>核心思想</strong>：<br>  如果方程是恰当的，那么说明存在一个函数 $f(x, y)$，使得它的全微分 $df = \frac{\partial f}{\partial x}dx + \frac{\partial f}{\partial y}dy$ 正好就是方程的左边。即 $M = \frac{\partial f}{\partial x}$ 且 $N = \frac{\partial f}{\partial y}$。那么原方程就变成了 $df=0$，其解就是 $f(x, y) = C$。</p>
+</li>
+<li><p><strong>求解步骤</strong>：</p>
+<ol>
+<li><strong>检验恰当性</strong>：计算 $\frac{\partial M}{\partial y}$ 和 $\frac{\partial N}{\partial x}$，看它们是否相等。</li>
+<li><strong>积分求 <code>f</code></strong>：如果相等，从 $M = \frac{\partial f}{\partial x}$ 开始，对 <code>x</code> 积分。<script type="math/tex; mode=display">f(x, y) = \int M(x, y)dx + g(y)</script>注意，积分常数是 <code>y</code> 的函数 <code>g(y)</code>，因为对 <code>x</code> 求偏导时它会消失。</li>
+<li><strong>求 <code>g(y)</code></strong>：对上一步得到的结果求 <code>y</code> 的偏导，并令它等于 <code>N</code>。<script type="math/tex; mode=display">\frac{\partial f}{\partial y} = \frac{\partial}{\partial y}\left( \int M(x, y)dx \right) + g'(y) = N(x, y)</script>解出 $g’(y)$，然后再积分得到 $g(y)$。</li>
+<li><strong>写出通解</strong>：将求出的 $g(y)$ 代回第二步的表达式，最终的通解就是 $f(x, y) = C$。</li>
+</ol>
+</li>
+<li><p><strong>详细示例</strong>：求解 $(2xy + 3x^2)dx + (x^2 - 1)dy = 0$</p>
+<ol>
+<li><strong>检验恰当性</strong>：<br>$M = 2xy + 3x^2$, $N = x^2 - 1$<script type="math/tex; mode=display">\frac{\partial M}{\partial y} = 2x</script><script type="math/tex; mode=display">\frac{\partial N}{\partial x} = 2x</script>两者相等，是恰当方程。</li>
+<li><strong>积分求 <code>f</code></strong>：<script type="math/tex; mode=display">f(x, y) = \int (2xy + 3x^2)dx = x^2y + x^3 + g(y)</script></li>
+<li><strong>求 <code>g(y)</code></strong>：<script type="math/tex; mode=display">\frac{\partial f}{\partial y} = x^2 + g'(y)</script>令它等于 $N$:<script type="math/tex; mode=display">x^2 + g'(y) = x^2 - 1 \implies g'(y) = -1</script>积分得 $g(y) = -y$。 (此处积分常数可忽略，最后统一加 C)</li>
+<li><strong>写出通解</strong>：<script type="math/tex; mode=display">f(x, y) = x^2y + x^3 - y = C</script><h4 id="五、伯努利方程"><a href="#五、伯努利方程" class="headerlink" title="五、伯努利方程"></a>五、伯努利方程</h4>它是一种<strong>非线性</strong>方程，但可以通过巧妙的代换<strong>转化</strong>为一阶线性方程。<script type="math/tex; mode=display">\frac{dy}{dx} + P(x)y = Q(x)y^n</script>它很像一阶线性方程，但右边多了一个 $y^n$ 项。当 $n=0$ 或 $n=1$ 时，它本身就是线性方程。</li>
+</ol>
+</li>
+<li><p><strong>核心思想</strong>：<br>  通过变量代换 $v = y^{1-n}$，将非线性的伯努利方程转化为一个关于 <code>v</code> 和 <code>x</code> 的<strong>一阶线性方程</strong>，然后用积分因子法求解。</p>
+</li>
+<li><p><strong>求解步骤</strong>：</p>
+<ol>
+<li><strong>化为标准形式</strong>：将方程写成 $y’ + P(x)y = Q(x)y^n$。</li>
+<li><strong>两边同除以</strong> $y^n$：<script type="math/tex; mode=display">y^{-n}\frac{dy}{dx} + P(x)y^{1-n} = Q(x)</script></li>
+<li><strong>变量代换</strong>：令 $v = y^{1-n}$，则 $\frac{dv}{dx} = (1-n)y^{-n}\frac{dy}{dx}$。</li>
+<li><strong>替换原方程</strong>：将上式代入变形后的方程，得到一个关于 <code>v</code> 的一阶线性方程。<script type="math/tex; mode=display">\frac{1}{1-n}\frac{dv}{dx} + P(x)v = Q(x) \implies \frac{dv}{dx} + (1-n)P(x)v = (1-n)Q(x)</script></li>
+<li><strong>求解线性方程</strong>：用积分因子法求解这个关于 <code>v</code> 的线性方程。</li>
+<li><strong>换回原变量</strong>：解出 <code>v</code> 后，用 $v = y^{1-n}$ 换回去，得到最终解。</li>
+</ol>
+</li>
+<li><p><strong>详细示例</strong>：求解 $\frac{dy}{dx} + \frac{1}{x}y = x y^2$</p>
+<ol>
+<li><strong>标准形式</strong>：已经是标准形式，$P(x)=\frac{1}{x}$, $Q(x)=x$, $n=2$。</li>
+<li><strong>同除以</strong> $y^2$：<script type="math/tex; mode=display">y^{-2}\frac{dy}{dx} + \frac{1}{x}y^{-1} = x</script></li>
+<li><strong>变量代换</strong>：令 $v = y^{1-2} = y^{-1}$，则 $\frac{dv}{dx} = -y^{-2}\frac{dy}{dx}$。</li>
+<li><strong>替换</strong>：<script type="math/tex; mode=display">-\frac{dv}{dx} + \frac{1}{x}v = x \implies \frac{dv}{dx} - \frac{1}{x}v = -x</script>这是一个关于 <code>v</code> 的一阶线性方程。</li>
+<li><strong>求解线性方程</strong>：积分因子 $\mu(x) = e^{\int -\frac{1}{x}dx} = e^{-\ln x} = \frac{1}{x}$。<script type="math/tex; mode=display">\frac{d}{dx}\left(\frac{1}{x}v\right) = -x \cdot \frac{1}{x} = -1</script>积分得 $\frac{1}{x}v = \int -1 dx = -x + C \implies v = x(-x+C) = -x^2+Cx$。</li>
+<li><strong>换回原变量</strong>：将 $v=y^{-1}$ 代回。<script type="math/tex; mode=display">y^{-1} = -x^2+Cx \implies y = \frac{1}{Cx-x^2}</script><h4 id="六、可降阶的二阶微分方程"><a href="#六、可降阶的二阶微分方程" class="headerlink" title="六、可降阶的二阶微分方程"></a>六、可降阶的二阶微分方程</h4><h5 id="类型一：方程中不显含-y-形如-F-x-y’-y’’-0"><a href="#类型一：方程中不显含-y-形如-F-x-y’-y’’-0" class="headerlink" title="类型一：方程中不显含 y (形如 $F(x, y’, y’’) = 0$)"></a>类型一：方程中不显含 <code>y</code> (形如 $F(x, y’, y’’) = 0$)</h5>此外如果既不显含 <code>y</code>，也不显含 <code>x</code>也按此方法处理</li>
+</ol>
+</li>
+<li><strong>核心思想与代换</strong>：<br>  既然 <code>y</code> 不存在，那么我们可以把 <code>y&#39;</code> 看作一个全新的未知函数。<br>  令 $p = y’ = \frac{dy}{dx}$<br>  那么，对 <code>x</code> 求导，我们得到：<br>  $p’ = \frac{dp}{dx} = \frac{d}{dx}(y’) = y’’$</li>
+<li><strong>降阶过程</strong>：<br>  将 $y’ = p$ 和 $y’’ = p’$ 代入原方程 $F(x, y’, y’’) = 0$，得到：<script type="math/tex; mode=display">F(x, p, p') = 0</script>  这是一个关于新变量 <code>p</code> 和自变量 <code>x</code> 的<strong>一阶微分方程</strong>。</li>
+<li><p><strong>详细示例</strong>：求解 $x y’’ - y’ = 3x^2$</p>
+<ol>
+<li><p><strong>诊断</strong>：方程中含有 <code>x</code>, <code>y&#39;</code>, <code>y&#39;&#39;</code>，但不含 <code>y</code>，属于类型一。</p>
+</li>
+<li><p><strong>第一步：求解 <code>p</code></strong></p>
+<ul>
+<li>令 $p = y’$，则 $y’’ = p’$。代入原方程：<br>$x p’ - p = 3x^2$</li>
+<li>这是一个关于 <code>p</code> 的一阶<strong>线性</strong>微分方程。化为标准形式：<br>$p’ - \frac{1}{x}p = 3x$</li>
+<li>用积分因子法求解。积分因子 $\mu(x) = e^{\int -1/x dx} = e^{-\ln|x|} = |x|^{-1} = \frac{1}{|x|}$。为方便，我们取 $x>0$ 的情形，即 $\mu(x) = \frac{1}{x}$。</li>
+<li>方程两边同乘 $\frac{1}{x}$：<br>$\frac{1}{x}p’ - \frac{1}{x^2}p = 3$</li>
+<li>左边凑成积的导数：<br>$\frac{d}{dx}\left(\frac{1}{x}p\right) = 3$</li>
+<li>两边积分：<br>$\frac{1}{x}p = \int 3 dx = 3x + C_1$</li>
+<li>解得 <code>p</code>：<br>$p = 3x^2 + C_1x$</li>
+</ul>
+</li>
+<li><p><strong>第二步：求解 <code>y</code></strong></p>
+<ul>
+<li>将 $p$ 换回 $\frac{dy}{dx}$：<br>$\frac{dy}{dx} = 3x^2 + C_1x$</li>
+<li>对 <code>x</code> 积分：<br>$y = \int (3x^2 + C_1x) dx$<script type="math/tex; mode=display">y = x^3 + \frac{1}{2}C_1x^2 + C_2</script></li>
+<li>这就是最终的通解。</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h5 id="类型二：方程中不显含-x-形如-F-y-y’-y’’-0"><a href="#类型二：方程中不显含-x-形如-F-y-y’-y’’-0" class="headerlink" title="类型二：方程中不显含 x (形如 $F(y, y’, y’’) = 0$)"></a>类型二：方程中不显含 <code>x</code> (形如 $F(y, y’, y’’) = 0$)</h5><ul>
+<li><p><strong>核心思想与代换</strong>：<br>  我们仍然令 $p = y’ = \frac{dy}{dx}$，但是这次我们不能简单地写 $y’’ = p’$，因为 $p$ 现在应该被看作是 <code>y</code> 的函数（因为 <code>x</code> 不在了），而不是 <code>x</code> 的函数。我们需要用链式法则来处理 <code>y&#39;&#39;</code>：</p>
+<script type="math/tex; mode=display">y'' = \frac{d(y')}{dx} = \frac{dp}{dx} = \frac{dp}{dy} \cdot \frac{dy}{dx} = p \frac{dp}{dy}</script><p>  总结一下这个关键的代换：<br>  令 $p = y’$<br>  则 $y’’ = p \frac{dp}{dy}$</p>
+<ul>
+<li><p><strong>降阶过程</strong>：<br>将 $y’ = p$ 和 $y’’ = p \frac{dp}{dy}$ 代入原方程 $F(y, y’, y’’) = 0$，得到：</p>
+<script type="math/tex; mode=display">F\left(y, p, p \frac{dp}{dy}\right) = 0</script><p>这是一个关于新变量 <code>p</code> 和<strong>新自变量 <code>y</code></strong> 的<strong>一阶微分方程</strong>。</p>
+</li>
+<li><p><strong>求解步骤 (两步法)</strong>：</p>
+<ol>
+<li><strong>第一步：求解 $p(y)$</strong><ul>
+<li>进行代换 $p=y’, y’’=p \frac{dp}{dy}$。</li>
+<li>解这个关于 <code>p</code> (未知函数) 和 <code>y</code> (自变量) 的一阶微分方程。</li>
+<li>得到解 $p(y) = \dots$ （会包含一个积分常数 $C_1$）。</li>
+</ul>
+</li>
+<li><strong>第二步：求解 $y(x)$</strong><ul>
+<li>将 $p$ 换回到 $\frac{dy}{dx}$。</li>
+<li>得到 $\frac{dy}{dx} = p(y)$。</li>
+<li>这是一个<strong>可分离变量</strong>方程。分离变量后求解。</li>
+<li>$\frac{dy}{p(y)} = dx$</li>
+<li>两边积分 $\int \frac{dy}{p(y)} = \int dx = x + C_2$（得到第二个常数 $C_2$）。</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p><strong>详细示例</strong>：求解 $y y’’ = (y’)^2$</p>
+<ol>
+<li><p><strong>诊断</strong>：方程中含有 <code>y</code>, <code>y&#39;</code>, <code>y&#39;&#39;</code>，但不含自变量 <code>x</code>，属于类型二。</p>
+</li>
+<li><p><strong>第一步：求解 <code>p</code></strong></p>
+<ul>
+<li>令 $p = y’$，则 $y’’ = p \frac{dp}{dy}$。代入原方程：<br>$y \left(p \frac{dp}{dy}\right) = p^2$</li>
+<li>这是一个关于 <code>p</code> 和 <code>y</code> 的一阶方程。当 $p \ne 0$ 时，两边消去 <code>p</code>：<br>$y \frac{dp}{dy} = p$</li>
+<li>用<strong>可分离变量法</strong>求解：<br>$\frac{dp}{p} = \frac{dy}{y}$</li>
+<li>两边积分：<br>$\ln|p| = \ln|y| + C$  (将积分常数记为 $C$)<br>为方便后续计算，可将常数 $C$ 写成 $\ln|C_1|$ 的形式：<br>$\ln|p| = \ln|y| + \ln|C_1| = \ln|C_1 y|$</li>
+<li>解得 <code>p</code>：<br>$p = C_1 y$</li>
+</ul>
+</li>
+<li><p><strong>第二步：求解 <code>y</code></strong></p>
+<ul>
+<li>将 $p$ 换回 $\frac{dy}{dx}$：<br>$\frac{dy}{dx} = C_1 y$</li>
+<li>再次使用<strong>可分离变量法</strong>：<br>$\frac{dy}{y} = C_1 dx$</li>
+<li>两边积分：<br>$\ln|y| = C_1 x + C_2$</li>
+<li>写成显式解：<br>$y = e^{C_1 x + C_2} = e^{C_2} \cdot e^{C_1 x}$<br>令 $A = e^{C_2}$，则最终通解为 $y = A e^{C_1 x}$。<h3 id="高阶线性微分方程求解"><a href="#高阶线性微分方程求解" class="headerlink" title="高阶线性微分方程求解"></a>高阶线性微分方程求解</h3><h4 id="核心求解策略：分而治之"><a href="#核心求解策略：分而治之" class="headerlink" title="核心求解策略：分而治之"></a>核心求解策略：分而治之</h4></li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<p>对于一个n阶常系数线性微分方程，其一般形式为：</p>
+<script type="math/tex; mode=display">a_n y^{(n)} + a_{n-1} y^{(n-1)} + \cdots + a_1 y' + a_0 y = g(x)</script><p>其中 $a<em>n, a</em>{n-1}, \dots, a_0$ 都是常数。</p>
+<p>求解这类方程有一个极其重要的<strong>叠加原理</strong>：</p>
+<blockquote>
+<p><strong>通解 $y$ = 齐次解 $y_c$ + 特解 $y_p$</strong></p>
+</blockquote>
+<ul>
+<li><strong>齐次解 (Complementary Solution) $y_c$</strong>：是对应<strong>齐次方程</strong>（即令右边 $g(x)=0$）的通解。它包含所有的任意常数（$C_1, C_2, \dots$），描述了系统的固有行为。</li>
+<li><strong>特解 (Particular Solution) $y_p$</strong>：是完整<strong>非齐次方程</strong>的任意一个解。它不含任意常数，描述了系统在外部“驱动” $g(x)$ 下的特定响应。</li>
+</ul>
+<p>因此，我们的求解过程被清晰地分为两步：</p>
+<ol>
+<li>求齐次解 $y_c$。</li>
+<li>求特解 $y_p$。<h5 id="第一部分：求齐次解-y-c-特征方程法"><a href="#第一部分：求齐次解-y-c-特征方程法" class="headerlink" title="第一部分：求齐次解 $y_c$ (特征方程法)"></a>第一部分：求齐次解 $y_c$ (特征方程法)</h5></li>
+</ol>
+<p>对于齐次方程 $a_n y^{(n)} + \cdots + a_1 y’ + a_0 y = 0$，我们采用<strong>特征方程法</strong>。</p>
+<ul>
+<li><p><strong>核心思想</strong>：<br>  大胆猜测方程的解具有指数形式 $y = e^{rx}$。将 $y$ 以及它的各阶导数（$y’ = re^{rx}, y’’=r^2e^{rx}, \dots$）代入齐次方程，并约去永不为零的 $e^{rx}$ 项，我们就能得到一个关于 <code>r</code> 的代数方程：</p>
+</li>
+<li><p><strong>特征方程 (Characteristic Equation)</strong>：</p>
+<script type="math/tex; mode=display">a_n r^n + a_{n-1} r^{n-1} + \cdots + a_1 r + a_0 = 0</script><p>  解微分方程的问题，现在被神奇地转化为了解一个代数多项式方程的问题！解出特征根 <code>r</code>，就能确定齐次解 $y_c$ 的形式。</p>
+</li>
+</ul>
+<p>根据代数基本定理，一个n次方程有n个根（包括实根、复根、重根）。根据根的不同情况，<code>y_c</code> 的构成如下：</p>
+<h6 id="Case-1-不相等的实数根-Distinct-Real-Roots"><a href="#Case-1-不相等的实数根-Distinct-Real-Roots" class="headerlink" title="Case 1: 不相等的实数根 (Distinct Real Roots)"></a>Case 1: 不相等的实数根 (Distinct Real Roots)</h6><p>如果特征方程有多个不相等的实数根 $r_1, r_2, \dots, r_k$，那么它们对应的解的线性组合就是 $y_c$ 的一部分。</p>
+<ul>
+<li><strong>形式</strong>：$C_1 e^{r_1 x} + C_2 e^{r_2 x} + \cdots + C_k e^{r_k x}$</li>
+</ul>
+<h6 id="Case-2-有重根的实数根-Repeated-Real-Roots"><a href="#Case-2-有重根的实数根-Repeated-Real-Roots" class="headerlink" title="Case 2: 有重根的实数根 (Repeated Real Roots)"></a>Case 2: 有重根的实数根 (Repeated Real Roots)</h6><p>如果一个实数根 $r_1$ 重复了 <code>k</code> 次，那么它不仅贡献 $C_1 e^{r_1 x}$，为了保证解的线性无关性，还需要引入 <code>x</code> 的幂次项。</p>
+<ul>
+<li><strong>形式</strong>：$(C_1 + C_2 x + C_3 x^2 + \cdots + C_k x^{k-1}) e^{r_1 x}$</li>
+</ul>
+<h6 id="Case-3-共轭复数根-Complex-Conjugate-Roots"><a href="#Case-3-共轭复数根-Complex-Conjugate-Roots" class="headerlink" title="Case 3: 共轭复数根 (Complex Conjugate Roots)"></a>Case 3: 共轭复数根 (Complex Conjugate Roots)</h6><p>由于系数是实数，复数根总是成对出现，即 $r = \alpha \pm \beta i$。这对共轭复数根共同构成一个实数形式的解。</p>
+<ul>
+<li><strong>形式</strong>：$e^{\alpha x} (C_1 \cos(\beta x) + C_2 \sin(\beta x))$<ul>
+<li>$\alpha$ 是复数根的<strong>实部</strong>，决定了振幅的指数增长或衰减。</li>
+<li>$\beta$ 是复数根的<strong>虚部</strong>，决定了振动的频率。<br>（这个形式由欧拉公式 $e^{i\theta} = \cos\theta + i\sin\theta$ 推导而来）</li>
+</ul>
+</li>
+</ul>
+<p><strong>【综合示例】</strong><br>求解一个五阶齐次微分方程，其特征方程为：$(r-3)(r+2)^2(r^2+9)=0$。</p>
+<ul>
+<li><strong>解根</strong>：<ul>
+<li>$r_1 = 3$ (单实根)</li>
+<li>$r_2 = r_3 = -2$ (二重实根)</li>
+<li>$r_{4,5} = 0 \pm 3i$ (一对共轭纯虚根，$\alpha=0, \beta=3$)</li>
+</ul>
+</li>
+<li><strong>组合通解 $y_c$</strong>：<script type="math/tex; mode=display">y_c = C_1 e^{3x} + (C_2 + C_3 x)e^{-2x} + e^{0x}(C_4 \cos(3x) + C_5 \sin(3x))$$   $$y_c = C_1 e^{3x} + (C_2 + C_3 x)e^{-2x} + C_4 \cos(3x) + C_5 \sin(3x)</script></li>
+</ul>
+<hr>
+<h5 id="第二部分：求特解-y-p"><a href="#第二部分：求特解-y-p" class="headerlink" title="第二部分：求特解 $y_p$"></a>第二部分：求特解 $y_p$</h5><p>求特解主要有两种方法，分别适用于不同的场景。</p>
+<h6 id="方法一：待定系数法-Method-of-Undetermined-Coefficients"><a href="#方法一：待定系数法-Method-of-Undetermined-Coefficients" class="headerlink" title="方法一：待定系数法 (Method of Undetermined Coefficients)"></a>方法一：待定系数法 (Method of Undetermined Coefficients)</h6><p>这是一种<strong>快捷但有适用范围限制</strong>的方法。</p>
+<ul>
+<li><p><strong>适用情形</strong>：<br>  当非齐次项 $g(x)$ 是由<strong>多项式、指数函数、正弦/余弦函数</strong>以及它们的<strong>有限和与积</strong>构成时。例如 $3x^2$, $5e^{2x}$, $10\sin(3x)$, $x e^{-x}$, $e^x \cos(2x)$。</p>
+</li>
+<li><p><strong>核心思想</strong>：<br>  特解 $y_p$ 的形式会与 $g(x)$ 的形式非常相似。我们可以“猜测”一个带有未定系数（A, B, C…）的 $y_p$ 形式，代入原方程，通过对比系数来确定这些待定系数的值。</p>
+</li>
+<li><p><strong>基本规则 (部分)</strong>：</p>
+</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">如果 $g(x)$ 的形式是…</th>
+<th style="text-align:left">那么 $y_p$ 的初始猜测形式是…</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">$P_n(x)$ (n次多项式)</td>
+<td style="text-align:left">$A_n x^n + \dots + A_1 x + A_0$ (同次多项式)</td>
+</tr>
+<tr>
+<td style="text-align:left">$A e^{ax}$</td>
+<td style="text-align:left">$B e^{ax}$</td>
+</tr>
+<tr>
+<td style="text-align:left">$A\cos(bx)$ 或 $B\sin(bx)$</td>
+<td style="text-align:left">$C\cos(bx) + D\sin(bx)$ (两者都要有)</td>
+</tr>
+<tr>
+<td style="text-align:left">(多项式) $\times$ (指数)</td>
+<td style="text-align:left">(同次多项式) $\times$ (指数)</td>
+</tr>
+<tr>
+<td style="text-align:left">(指数) $\times$ (三角函数)</td>
+<td style="text-align:left">(指数) $\times$ ($C\cos(bx) + D\sin(bx)$)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li><p><strong>最重要的修正规则</strong>：<br>  <strong>如果你的 $y_p$ 初始猜测形式中的任何一项，已经出现在齐次解 $y_c$ 中了（即是齐次方程的解），那么你需要将你的整个猜测形式乘以 <code>x</code>。如果乘以 <code>x</code> 后仍然有项与 $y_c$ 重复，就继续乘以 <code>x</code>，直到没有任何一项与 $y_c$ 中的项重复为止。</strong></p>
+<ul>
+<li><p><strong>示例1 (无需修正)</strong>：$y’’ - 2y’ - 3y = 4e^{2x}$</p>
+<ul>
+<li>$y_c$ 的特征方程是 $r^2 - 2r - 3 = (r-3)(r+1) = 0$，所以 $y_c = C_1 e^{3x} + C_2 e^{-x}$。</li>
+<li>$g(x)=4e^{2x}$，猜测 $y_p = A e^{2x}$。这个形式没有在 $y_c$ 中出现。</li>
+<li>将 $y_p$ 代入原方程，解得 $A = -4/3$。所以 $y_p = -\frac{4}{3}e^{2x}$。</li>
+</ul>
+</li>
+<li><p><strong>示例2 (需要修正)</strong>：$y’’ - 2y’ - 3y = 4e^{3x}$</p>
+<ul>
+<li>$y_c$ 同上，为 $C_1 e^{3x} + C_2 e^{-x}$。</li>
+<li>$g(x)=4e^{3x}$，初始猜测 $y_p = A e^{3x}$。<strong>但 $e^{3x}$ 已经在 $y_c$ 中了！</strong></li>
+<li><strong>修正猜测</strong>：将初始猜测乘以 <code>x</code>，得到新的猜测 $y_p = A x e^{3x}$。</li>
+<li>将这个新的 $y_p$ 代入原方程，解得 $A = 1$。所以 $y_p = x e^{3x}$。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="特征方程"><a href="#特征方程" class="headerlink" title="特征方程"></a>特征方程</h3><p>特征方程是从<strong>常系数线性齐次微分方程</strong>转换而来的<strong>普通代数多项式方程</strong>。<br>这个转换有非常直接的对应规则：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">微分方程中的项</th>
+<th style="text-align:left">对应到</th>
+<th style="text-align:left">特征方程中的项</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>n</code> 阶导数 $y^{(n)}$</td>
+<td style="text-align:left">$\rightarrow$</td>
+<td style="text-align:left">$r^n$</td>
+</tr>
+<tr>
+<td style="text-align:left">二阶导数 $y’’$</td>
+<td style="text-align:left">$\rightarrow$</td>
+<td style="text-align:left">$r^2$</td>
+</tr>
+<tr>
+<td style="text-align:left">一阶导数 $y’$</td>
+<td style="text-align:left">$\rightarrow$</td>
+<td style="text-align:left">$r^1$ (即 $r$)</td>
+</tr>
+<tr>
+<td style="text-align:left">函数本身 $y$</td>
+<td style="text-align:left">$\rightarrow$</td>
+<td style="text-align:left">$r^0$ (即 $1$)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="推导过程"><a href="#推导过程" class="headerlink" title="推导过程"></a>推导过程</h4><ol>
+<li><strong>做出一个有根据的猜测</strong>：<br>注意到，指数函数 $y = e^{rx}$ 有一个很棒的性质：它的每一阶导数都和它本身非常像，只是多了一个常数因子。</li>
+</ol>
+<ul>
+<li>$y = e^{rx}$</li>
+<li>$y’ = r \cdot e^{rx}$</li>
+<li>$y’’ = r^2 \cdot e^{rx}$<br>既然微分方程是这些项的线性组合等于零，那么如果解是指数函数的形式，我们就有可能把它们约掉。所以，我们<strong>假设</strong>方程的解就是 $y = e^{rx}$ 的形式，现在需要做的就是找到合适的 <code>r</code>。</li>
+</ul>
+<ol>
+<li><p><strong>将猜测代入微分方程</strong>：<br>把 $y$, $y’$, $y’’$ 的表达式代入原方程 $ay’’ + by’ + cy = 0$ 中：</p>
+<script type="math/tex; mode=display">a(r^2 e^{rx}) + b(r e^{rx}) + c(e^{rx}) = 0</script></li>
+<li><p><strong>提取公因式</strong>：<br>方程的每一项都含有 $e^{rx}$，我们可以把它提取出来：</p>
+<script type="math/tex; mode=display">e^{rx} (ar^2 + br + c) = 0</script></li>
+<li><p><strong>得出结论</strong>：<br>我们知道，对于任何实数 <code>x</code>，指数函数 $e^{rx}$ 的值永远不会是 0。因此，必须是括号里的那部分等于零：</p>
+<script type="math/tex; mode=display">ar^2 + br + c = 0</script><p><strong>这就是特征方程！</strong> </p>
+</li>
+</ol>
+
+      </div>
+      
+      
+      
+    </div>
+  <ul class="breadcrumb">
+            <li><a href="/%E6%95%B0%E5%AD%A6/">数学</a></li>
+            <li><a href="/%E6%95%B0%E5%AD%A6/%E9%AB%98%E6%95%B0/">高数</a></li>
+            <li>微分方程</li>
+  </ul>
+
+    
+    
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">wumingshi654</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>
