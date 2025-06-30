@@ -11,3 +11,4 @@ Disallow: /css/
 Disallow: /images/
 
 Sitemap: https://wumingshi654.github.io/sitemap.xml
+Sitemap: https://wumingshi654.github.io/sitemap.txt
