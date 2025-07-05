@@ -19,26 +19,26 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"wumingshi654.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.23.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="定义与性质理解 $A\mathbf{x} &#x3D; \lambda\mathbf{x}$ 这个核心公式。必须清楚地知道 A 是矩阵，$\mathbf{x}$ 是非零特征向量，$\lambda$ 是对应的特征值。它的集合含义就是在矩阵 A 所代表的线性变换下，特征向量 $\mathbf{x}$ 的方向保持不变（只进行伸缩），伸缩的比例就是特征值 $\lambda$。 为了求解 $\lambda$，我们对这">
+    <meta name="description" content="概念向量就是一个有次序的数字列表。几何含义可以借助低维空间来理解。例如一个2维向量 $\begin{pmatrix} x \ y \end{pmatrix}$ 可以看作是平面直角坐标系中的一个点，或者一个从原点指向该点的箭头。给定一组向量 $\alpha_1, \alpha_2, \dots, \alpha_s$ 和一组普通的数（标量）$k_1, k_2, \dots, k_s$，把它们像下面这样">
 <meta property="og:type" content="article">
-<meta property="og:title" content="特征值与特征向量">
-<meta property="og:url" content="https://wumingshi654.github.io/2025/06/29/%E6%95%B0%E5%AD%A6/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F/index.html">
+<meta property="og:title" content="向量组">
+<meta property="og:url" content="https://wumingshi654.github.io/2025/07/02/%E6%95%B0%E5%AD%A6/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/%E5%90%91%E9%87%8F%E7%BB%84/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="定义与性质理解 $A\mathbf{x} &#x3D; \lambda\mathbf{x}$ 这个核心公式。必须清楚地知道 A 是矩阵，$\mathbf{x}$ 是非零特征向量，$\lambda$ 是对应的特征值。它的集合含义就是在矩阵 A 所代表的线性变换下，特征向量 $\mathbf{x}$ 的方向保持不变（只进行伸缩），伸缩的比例就是特征值 $\lambda$。 为了求解 $\lambda$，我们对这">
+<meta property="og:description" content="概念向量就是一个有次序的数字列表。几何含义可以借助低维空间来理解。例如一个2维向量 $\begin{pmatrix} x \ y \end{pmatrix}$ 可以看作是平面直角坐标系中的一个点，或者一个从原点指向该点的箭头。给定一组向量 $\alpha_1, \alpha_2, \dots, \alpha_s$ 和一组普通的数（标量）$k_1, k_2, \dots, k_s$，把它们像下面这样">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-06-29T13:44:17.000Z">
-<meta property="article:modified_time" content="2025-07-03T12:03:36.103Z">
+<meta property="article:published_time" content="2025-07-02T13:09:31.000Z">
+<meta property="article:modified_time" content="2025-07-03T12:03:41.391Z">
 <meta property="article:author" content="wumingshi654">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://wumingshi654.github.io/2025/06/29/%E6%95%B0%E5%AD%A6/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F/">
+<link rel="canonical" href="https://wumingshi654.github.io/2025/07/02/%E6%95%B0%E5%AD%A6/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/%E5%90%91%E9%87%8F%E7%BB%84/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://wumingshi654.github.io/2025/06/29/%E6%95%B0%E5%AD%A6/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F/","path":"2025/06/29/数学/线性代数/特征值与特征向量/","title":"特征值与特征向量"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://wumingshi654.github.io/2025/07/02/%E6%95%B0%E5%AD%A6/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/%E5%90%91%E9%87%8F%E7%BB%84/","path":"2025/07/02/数学/线性代数/向量组/","title":"向量组"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>特征值与特征向量 | Hexo</title>
+<title>向量组 | Hexo</title>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-767VX4QX7W"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -140,7 +140,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E4%B8%8E%E6%80%A7%E8%B4%A8"><span class="nav-number">1.</span> <span class="nav-text">定义与性质</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5%E7%9A%84%E7%9B%B8%E4%BC%BC%E4%B8%8E%E5%AF%B9%E8%A7%92%E5%8C%96"><span class="nav-number">2.</span> <span class="nav-text">矩阵的相似与对角化</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E7%9B%B8%E5%85%B3%E6%80%A7"><span class="nav-number">2.</span> <span class="nav-text">线性相关性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A4%E6%96%AD%E7%BA%BF%E6%80%A7%E7%9B%B8%E5%85%B3%E6%80%A7"><span class="nav-number">2.1.</span> <span class="nav-text">判断线性相关性</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -186,7 +186,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://wumingshi654.github.io/2025/06/29/%E6%95%B0%E5%AD%A6/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F/">
+    <link itemprop="mainEntityOfPage" href="https://wumingshi654.github.io/2025/07/02/%E6%95%B0%E5%AD%A6/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/%E5%90%91%E9%87%8F%E7%BB%84/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -199,12 +199,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="特征值与特征向量 | Hexo">
+      <meta itemprop="name" content="向量组 | Hexo">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          特征值与特征向量
+          向量组
         </h1>
 
         <div class="post-meta-container">
@@ -215,14 +215,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2025-06-29 21:44:17" itemprop="dateCreated datePublished" datetime="2025-06-29T21:44:17+08:00">2025-06-29</time>
+      <time title="创建时间：2025-07-02 21:09:31" itemprop="dateCreated datePublished" datetime="2025-07-02T21:09:31+08:00">2025-07-02</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-07-03 20:03:36" itemprop="dateModified" datetime="2025-07-03T20:03:36+08:00">2025-07-03</time>
+      <time title="修改时间：2025-07-03 20:03:41" itemprop="dateModified" datetime="2025-07-03T20:03:41+08:00">2025-07-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -247,34 +247,60 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h2 id="定义与性质"><a href="#定义与性质" class="headerlink" title="定义与性质"></a>定义与性质</h2><p>理解 $A\mathbf{x} = \lambda\mathbf{x}$ 这个核心公式。必须清楚地知道 A 是矩阵，$\mathbf{x}$ 是<strong>非零</strong>特征向量，$\lambda$ 是对应的特征值。它的集合含义就是在矩阵 A 所代表的线性变换下，特征向量 $\mathbf{x}$ 的方向<strong>保持不变</strong>（只进行伸缩），伸缩的比例就是特征值 $\lambda$。</p>
-<p>为了求解 $\lambda$，我们对这个定义式进行变形：</p>
+    <div class="post-body" itemprop="articleBody"><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>向量就是一个有次序的数字列表。几何含义可以借助低维空间来理解。例如一个2维向量 $\begin{pmatrix} x \ y \end{pmatrix}$ 可以看作是平面直角坐标系中的一个点，或者一个从原点指向该点的箭头。<br>给定一组向量 $\alpha_1, \alpha_2, \dots, \alpha_s$ 和一组普通的数（标量）$k_1, k_2, \dots, k_s$，把它们像下面这样乘起来再加起来，得到的结果就叫一个<strong>线性组合</strong>。<br>        $\gamma = k_1\alpha_1 + k_2\alpha_2 + \dots + k_s\alpha_s$<br>如果向量 $\beta$ <strong>可以</strong>被写成向量组 $A: {\alpha_1, \alpha_2, \dots, \alpha_s}$ 的一个线性组合，我们就说向量 $\beta$ <strong>可以由向量组 A 线性表示</strong>（或称线性表出）。求解线性方程组就是要找到一组标量能让上面的线性表示成立<br><strong>问题</strong>：设向量 $\alpha_1 = \begin{pmatrix} 1 \ 0 \ 1 \end{pmatrix}$, $\alpha_2 = \begin{pmatrix} 2 \ 1 \ 3 \end{pmatrix}$，$\beta = \begin{pmatrix} 4 \ 1 \ 5 \end{pmatrix}$。问 $\beta$ 能否由 $\alpha_1, \alpha_2$ 线性表示？若能，写出表示方法。</p>
+<p><strong>解题步骤</strong>:</p>
 <ol>
-<li>将右边的项移到左边：<br>$A\mathbf{x} - \lambda\mathbf{x} = \mathbf{0}$</li>
-<li>为了将矩阵 $A$ 和标量 $\lambda$ 合并运算，我们引入 $n$ 阶单位矩阵 $I$。因为 $I\mathbf{x} = \mathbf{x}$，所以 $\lambda\mathbf{x} = \lambda I\mathbf{x}$。代入上式：<br>$A\mathbf{x} - \lambda I\mathbf{x} = \mathbf{0}$</li>
-<li>提取公因子 $\mathbf{x}$：<br>$(A - \lambda I)\mathbf{x} = \mathbf{0}$</li>
-</ol>
-<p>现在我们得到了一个关键的方程。这是一个关于向量 $\mathbf{x}$ 的<strong>齐次线性方程组</strong>。</p>
-<p>根据线性代数的知识，一个齐次线性方程组 $(B)\mathbf{x} = \mathbf{0}$ 要有<strong>非零解</strong>（即我们定义的特征向量 $\mathbf{x}$ 不能是零向量），其充要条件是系数矩阵 $B$ 的行列式为零。</p>
-<p>在我们的情况中，系数矩阵是 $(A - \lambda I)$。因此，为了使特征向量 $\mathbf{x}$ 存在非零解，必须满足：<br>$\det(A - \lambda I) = 0$<br>这个方程被称为矩阵 $A$ 的<strong>特征方程</strong>（Characteristic Equation）。它是一个关于 $\lambda$ 的多项式方程，这个多项式被称为<strong>特征多项式</strong>。</p>
-<p><strong>和与积</strong>：$n$ 阶矩阵 A 的所有特征值之和等于其<strong>迹</strong>（主对角线元素之和），即 $\sum \lambda_i = \text{tr}(A)$。所有特征值之积等于其<strong>行列式</strong>的值，即 $\prod \lambda_i = \det(A)$<br><strong>矩阵变换与特征值的关系</strong>：</p>
+<li><p><strong>提出问题</strong>：我们要判断是否存在数 $x_1, x_2$ 使得 $x_1\alpha_1 + x_2\alpha_2 = \beta$。</p>
+</li>
+<li><p><strong>建立方程组</strong>：<br>$ x_1\begin{pmatrix} 1 \ 0 \ 1 \end{pmatrix} + x_2\begin{pmatrix} 2 \ 1 \ 3 \end{pmatrix} = \begin{pmatrix} 4 \ 1 \ 5 \end{pmatrix} \implies \begin{cases} x_1 + 2x_2 = 4 \ 0x_1 + x_2 = 1 \ x_1 + 3x_2 = 5 \end{cases} $</p>
+</li>
+<li><p><strong>构造增广矩阵并化简</strong>：<br>$(\alpha_1 \ \alpha_2 \ | \ \beta) = \begin{pmatrix} 1 &amp; 2 &amp; | &amp; 4 \ 0 &amp; 1 &amp; | &amp; 1 \ 1 &amp; 3 &amp; | &amp; 5 \end{pmatrix}$<br>进行初等行变换 ($R_3 \leftarrow R_3 - R_1$):<br>$\begin{pmatrix} 1 &amp; 2 &amp; | &amp; 4 \ 0 &amp; 1 &amp; | &amp; 1 \ 0 &amp; 1 &amp; | &amp; 1 \end{pmatrix}$<br>再进行初等行变换 ($R_3 \leftarrow R_3 - R_2$):<br>$\begin{pmatrix} 1 &amp; 2 &amp; | &amp; 4 \ 0 &amp; 1 &amp; | &amp; 1 \ 0 &amp; 0 &amp; | &amp; 0 \end{pmatrix}$</p>
+</li>
+<li><p><strong>得出结论</strong>：</p>
 <ul>
-<li>若 A 的特征值为 $\lambda$，则 $kA$ 的特征值为 $k\lambda$。</li>
-<li>$A^k$ 的特征值为 $\lambda^k$。</li>
-<li>$A^{-1}$ 的特征值为 $\lambda^{-1}$ (前提是 A 可逆，即 $\lambda \neq 0$)。</li>
-<li>$A^T$ (转置矩阵) 的特征值与 A 相同。</li>
-<li>对于多项式 $f(A)$，其特征值为 $f(\lambda)$。</li>
-</ul>
-<h2 id="矩阵的相似与对角化"><a href="#矩阵的相似与对角化" class="headerlink" title="矩阵的相似与对角化"></a>矩阵的相似与对角化</h2><p>存在可逆矩阵 P，使得 $P^{-1}AP = B$，则矩阵 A 和 B 相似。判断一个矩阵 A 是否可以对角化，即 A 是否与一个对角矩阵 $\Lambda$ 相似。</p>
-<ul>
-<li><strong>充要条件</strong>：<ul>
-<li><strong>条件1 (向量形式)</strong>：$n$ 阶矩阵 A 有 $n$ 个线性无关的特征向量。</li>
-<li><strong>条件2 (重数形式)</strong>：对 A 的<strong>每一个</strong>特征值 $\lambda$，它的<strong>代数重数</strong>（特征方程中根的次数）必须等于它的<strong>几何重数</strong>（特征子空间 $E_\lambda$ 的维数，即 $n - \text{rank}(A - \lambda I)$）。</li>
+<li><strong>判断能否表示</strong>：化简后，系数矩阵的秩为2（有两个主元），增广矩阵的秩也为2（没有出现 <code>0 0 | 非零</code> 的情况）。因为 $r(\alpha_1, \alpha_2) = r(\alpha_1, \alpha_2, \beta) = 2$，所以方程组有解，<strong>$\beta$ 可以由 $\alpha_1, \alpha_2$ 线性表示</strong>。</li>
+<li><strong>求表示方法</strong>：根据化简后的矩阵，我们可以解出 $x_1, x_2$。<ul>
+<li>由第二行可知：$x_2 = 1$。</li>
+<li>将 $x_2=1$ 代入第一行：$x_1 + 2(1) = 4 \implies x_1 = 2$。</li>
+<li>所以，线性表示为：$\beta = 2\alpha_1 + 1\alpha_2$。</li>
 </ul>
 </li>
-<li><strong>充分条件（快速判断）</strong>：<ul>
-<li>若 $n$ 阶矩阵有 $n$ 个<strong>不同</strong>的特征值，则它一定可以对角化。</li>
-<li><strong>实对称矩阵</strong>一定可以对角化。</li>
+</ul>
+</li>
+</ol>
+<h2 id="线性相关性"><a href="#线性相关性" class="headerlink" title="线性相关性"></a>线性相关性</h2><p>对于一组向量 $\alpha_1, \alpha_2, \dots, \alpha_s$，我们看下面这个方程：<br>$k_1\alpha_1 + k_2\alpha_2 + \dots + k_s\alpha_s = \mathbf{0}$<br>这是一个等于<strong>零向量</strong>的线性组合，我们称之为<strong>齐次</strong>线性方程。</p>
+<ul>
+<li><strong>线性相关 (Linearly Dependent)</strong>：如果存在一组<strong>不全为零</strong>的数 $k_1, k_2, \dots, k_s$ 能让上面这个等式成立。</li>
+<li><strong>线性无关 (Linearly Independent)</strong>：<strong>只有</strong>当 $k_1, k_2, \dots, k_s$ <strong>全部为零</strong>时，上面的等式才能成立。</li>
+</ul>
+<p>线性相关意味着方程中至少一个向量可以被其他向量表示替换。因为如果 $k_1, \dots, k_s$ 不全为零，我们假设 $k_1 \neq 0$，那么就可以把 $\alpha_1$ 挪到等式另一边：<br>        $ \alpha_1 = -\frac{k_2}{k_1}\alpha_2 - \dots - \frac{k_s}{k_1}\alpha_s  $<br>上式就是<strong>线性表示</strong>！所以，<strong>“线性相关”的本质就是“向量组中至少有一个向量可以被其他向量线性表示”</strong>。这个向量就是“冗员”。</p>
+<h3 id="判断线性相关性"><a href="#判断线性相关性" class="headerlink" title="判断线性相关性"></a>判断线性相关性</h3><ul>
+<li>解齐次线性方程组 $x_1\alpha_1 + x_2\alpha_2 + \dots + x_s\alpha_s = \mathbf{0}$</li>
+<li>秩判断法<ul>
+<li>将向量组中的所有向量作为列，构成一个矩阵 $A = (\alpha_1, \alpha_2, \dots, \alpha_s)$。</li>
+<li>求出矩阵 $A$ 的秩 $r(A)$。</li>
+<li>比较秩与向量个数 $s$：<ul>
+<li>若 <strong>$r(A) &lt; s$</strong> （秩小于向量个数），则<strong>线性相关</strong>。（直观理解：有效信息维度不够，向量之间必然有依赖关系）。</li>
+<li>若 <strong>$r(A) = s$</strong> （秩等于向量个数），则<strong>线性无关</strong>。（直观理解：每个向量都提供了一个新的信息维度，互相独立）。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>行列式判断法<ul>
+<li><strong>使用前提</strong>：向量的个数 $n$ <strong>必须等于</strong> 向量的维数 $n$。这样才能构成一个方阵。</li>
+<li>将向量构成方阵 $A = (\alpha_1, \alpha_2, \dots, \alpha_n)$。</li>
+<li>计算行列式 $\det(A)$。<ul>
+<li>若 <strong>$\det(A) = 0$</strong>，则<strong>线性相关</strong>。</li>
+<li>若 <strong>$\det(A) \neq 0$</strong>，则<strong>线性无关</strong>。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>一些特殊情况<ul>
+<li>任何向量组，只要里面包含了零向量，就一定是线性相关的</li>
+<li>$m$ 个 $n$ 维向量，如果向量个数 $m$ 大于维数 $n$（比如3个2维向量），则该向量组必定线性相关</li>
+<li>如果一个向量组的某个部分组（子集）是线性相关的，那么整个向量组也一定是线性相关的</li>
+<li>如果一个向量组是线性无关的，那么它的任何一个部分组（子集）也一定是线性无关的</li>
 </ul>
 </li>
 </ul>
@@ -291,14 +317,11 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2025/06/29/%E6%95%B0%E5%AD%A6/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/%E7%9F%A9%E9%98%B5/" rel="prev" title="矩阵">
-                  <i class="fa fa-angle-left"></i> 矩阵
+                <a href="/2025/06/29/%E6%95%B0%E5%AD%A6/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F/" rel="prev" title="特征值与特征向量">
+                  <i class="fa fa-angle-left"></i> 特征值与特征向量
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2025/07/02/%E6%95%B0%E5%AD%A6/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/%E5%90%91%E9%87%8F%E7%BB%84/" rel="next" title="向量组">
-                  向量组 <i class="fa fa-angle-right"></i>
-                </a>
             </div>
           </div>
     </footer>
