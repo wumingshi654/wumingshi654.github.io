@@ -19,12 +19,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"wumingshi654.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.23.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="结论先行：因为“不借位”的数学结果，恰好在硬件“减法变加法”的运算中，自然地产生了值为1的进位输出。 为了将这个值为1的硬件信号（C_out）对应到逻辑上“不借位”的标志（CF&#x3D;0），就必须进行取反。 下面我们来逐步拆解这个原理。 1. 回顾两个基本前提我们在之前的讨论中已经确定：  减法即加法：计算机硬件不做真正的减法，执行 A - B 实际上是在计算 A + (-B)。 求负操作：(-B) 的">
+    <meta name="description" content="结论先行：因为“不借位”的数学结果，恰好在硬件“减法变加法”的运算中，自然地产生了值为1的进位输出。 为了将这个值为1的硬件信号（C_out）对应到逻辑上“不借位”的标志（CF&#x3D;0），就必须进行取反。 下面我们来逐步拆解这个原理。 1. 回顾两个基本前提 我们在之前的讨论中已经确定：  减法即加法：计算机硬件不做真正的减法，执行 A - B 实际上是在计算 A + (-B)。 求负">
 <meta property="og:type" content="article">
 <meta property="og:title" content="减法时的借位标志CF">
 <meta property="og:url" content="https://wumingshi654.github.io/2025/06/21/408/%E8%AE%A1%E7%BB%84/%E5%87%8F%E6%B3%95%E6%97%B6%E7%9A%84%E5%80%9F%E4%BD%8D%E6%A0%87%E5%BF%97CF/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="结论先行：因为“不借位”的数学结果，恰好在硬件“减法变加法”的运算中，自然地产生了值为1的进位输出。 为了将这个值为1的硬件信号（C_out）对应到逻辑上“不借位”的标志（CF&#x3D;0），就必须进行取反。 下面我们来逐步拆解这个原理。 1. 回顾两个基本前提我们在之前的讨论中已经确定：  减法即加法：计算机硬件不做真正的减法，执行 A - B 实际上是在计算 A + (-B)。 求负操作：(-B) 的">
+<meta property="og:description" content="结论先行：因为“不借位”的数学结果，恰好在硬件“减法变加法”的运算中，自然地产生了值为1的进位输出。 为了将这个值为1的硬件信号（C_out）对应到逻辑上“不借位”的标志（CF&#x3D;0），就必须进行取反。 下面我们来逐步拆解这个原理。 1. 回顾两个基本前提 我们在之前的讨论中已经确定：  减法即加法：计算机硬件不做真正的减法，执行 A - B 实际上是在计算 A + (-B)。 求负">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-06-21T08:40:48.000Z">
 <meta property="article:modified_time" content="2025-07-03T12:04:13.771Z">
@@ -72,9 +72,8 @@
 
   
 
-  <script class="next-config" data-name="enableMath" type="application/json">true</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha256-UF1fgpAiu3tPJN/uCqEUHNe7pnr+QR0SQDNfgglgtcM=" crossorigin="anonymous">
-  <script class="next-config" data-name="katex" type="application/json">{"copy_tex_js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/copy-tex.min.js","integrity":"sha256-Us54+rSGDSTvIhKKUs4kygE2ipA0RXpWWh0/zLqw3bs="}}</script>
-  <script src="/js/third-party/math/katex.js" defer></script>
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
 
 
 
@@ -140,7 +139,10 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%9B%9E%E9%A1%BE%E4%B8%A4%E4%B8%AA%E5%9F%BA%E6%9C%AC%E5%89%8D%E6%8F%90"><span class="nav-number">1.</span> <span class="nav-text">1. 回顾两个基本前提</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-CF%E6%A0%87%E5%BF%97%E5%9C%A8%E5%87%8F%E6%B3%95%E4%B8%AD%E7%9A%84%E2%80%9C%E9%80%BB%E8%BE%91%E2%80%9D%E5%90%AB%E4%B9%89"><span class="nav-number">2.</span> <span class="nav-text">2. CF标志在减法中的“逻辑”含义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-C-out%E5%9C%A8%E5%87%8F%E6%B3%95%E8%BF%90%E7%AE%97%E4%B8%AD%E7%9A%84%E2%80%9C%E7%A1%AC%E4%BB%B6%E2%80%9D%E4%BA%A7%E5%87%BA"><span class="nav-number">3.</span> <span class="nav-text">3. C_out在减法运算中的“硬件”产出</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%83%85%E5%86%B5%E4%B8%80%EF%BC%9AA-gt-B-%E9%80%BB%E8%BE%91%E4%B8%8A%E5%BA%94%E4%B8%BA-CF-0"><span class="nav-number">3.1.</span> <span class="nav-text">情况一：A &gt;&#x3D; B (逻辑上应为 CF&#x3D;0)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%83%85%E5%86%B5%E4%BA%8C%EF%BC%9AA-lt-B-%E9%80%BB%E8%BE%91%E4%B8%8A%E5%BA%94%E4%B8%BA-CF-1"><span class="nav-number">3.2.</span> <span class="nav-text">情况二：A &lt; B (逻辑上应为 CF&#x3D;1)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E7%BB%93%E8%AE%BA%EF%BC%9A%E8%BF%9E%E6%8E%A5%E9%80%BB%E8%BE%91%E4%B8%8E%E7%A1%AC%E4%BB%B6"><span class="nav-number">4.</span> <span class="nav-text">4. 结论：连接逻辑与硬件</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9E%E9%A1%BE%E4%B8%A4%E4%B8%AA%E5%9F%BA%E6%9C%AC%E5%89%8D%E6%8F%90"><span class="nav-number">1.</span> <span class="nav-text">1. 回顾两个基本前提</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cf%E6%A0%87%E5%BF%97%E5%9C%A8%E5%87%8F%E6%B3%95%E4%B8%AD%E7%9A%84%E9%80%BB%E8%BE%91%E5%90%AB%E4%B9%89"><span class="nav-number">2.</span> <span class="nav-text">2. CF标志在减法中的“逻辑”含义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#c_out%E5%9C%A8%E5%87%8F%E6%B3%95%E8%BF%90%E7%AE%97%E4%B8%AD%E7%9A%84%E7%A1%AC%E4%BB%B6%E4%BA%A7%E5%87%BA"><span class="nav-number">3.</span> <span class="nav-text">3.
+C_out在减法运算中的“硬件”产出</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%83%85%E5%86%B5%E4%B8%80a-b-%E9%80%BB%E8%BE%91%E4%B8%8A%E5%BA%94%E4%B8%BA-cf0"><span class="nav-number">3.1.</span> <span class="nav-text">情况一：A &gt;&#x3D; B (逻辑上应为
+CF&#x3D;0)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%83%85%E5%86%B5%E4%BA%8Ca-b-%E9%80%BB%E8%BE%91%E4%B8%8A%E5%BA%94%E4%B8%BA-cf1"><span class="nav-number">3.2.</span> <span class="nav-text">情况二：A &lt; B (逻辑上应为
+CF&#x3D;1)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%93%E8%AE%BA%E8%BF%9E%E6%8E%A5%E9%80%BB%E8%BE%91%E4%B8%8E%E7%A1%AC%E4%BB%B6"><span class="nav-number">4.</span> <span class="nav-text">4. 结论：连接逻辑与硬件</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -153,13 +155,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-count">9</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
   </nav>
@@ -247,69 +249,118 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>结论先行：<strong>因为“不借位”的数学结果，恰好在硬件“减法变加法”的运算中，自然地产生了值为1的进位输出。</strong> 为了将这个值为1的硬件信号（<code>C_out</code>）对应到逻辑上“不借位”的标志（<code>CF=0</code>），就必须进行取反。</p>
+    <div class="post-body" itemprop="articleBody"><p>结论先行：<strong>因为“不借位”的数学结果，恰好在硬件“减法变加法”的运算中，自然地产生了值为1的进位输出。</strong>
+为了将这个值为1的硬件信号（<code>C_out</code>）对应到逻辑上“不借位”的标志（<code>CF=0</code>），就必须进行取反。</p>
 <p>下面我们来逐步拆解这个原理。</p>
-<h3 id="1-回顾两个基本前提"><a href="#1-回顾两个基本前提" class="headerlink" title="1. 回顾两个基本前提"></a>1. 回顾两个基本前提</h3><p>我们在之前的讨论中已经确定：</p>
-<ol>
-<li><strong>减法即加法</strong>：计算机硬件不做真正的减法，执行 <code>A - B</code> 实际上是在计算 <code>A + (-B)</code>。</li>
-<li><strong>求负操作</strong>：<code>(-B)</code> 的补码是通过 <code>¬B + 1</code> 得到的（<code>¬B</code> 指按位取反）。</li>
+<h3 id="回顾两个基本前提">1. 回顾两个基本前提</h3>
+<p>我们在之前的讨论中已经确定：</p>
+<ol type="1">
+<li><strong>减法即加法</strong>：计算机硬件不做真正的减法，执行
+<code>A - B</code> 实际上是在计算 <code>A + (-B)</code>。</li>
+<li><strong>求负操作</strong>：<code>(-B)</code> 的补码是通过
+<code>¬B + 1</code> 得到的（<code>¬B</code> 指按位取反）。</li>
 </ol>
-<p>将这两点结合，计算机在计算 <code>A - B</code> 时，实际执行的完整操作是：</p>
-<p>$A - B \quad \xrightarrow{\text{硬件实现}} \quad A + (\neg B + 1)$</p>
-<h3 id="2-CF标志在减法中的“逻辑”含义"><a href="#2-CF标志在减法中的“逻辑”含义" class="headerlink" title="2. CF标志在减法中的“逻辑”含义"></a>2. CF标志在减法中的“逻辑”含义</h3><p>设计CPU时希望借位时返回1</p>
-<h3 id="3-C-out在减法运算中的“硬件”产出"><a href="#3-C-out在减法运算中的“硬件”产出" class="headerlink" title="3. C_out在减法运算中的“硬件”产出"></a>3. C_out在减法运算中的“硬件”产出</h3><p>现在，我们分析在 <code>A + ¬B + 1</code> 这个硬件运算中，最终的进位输出 <code>C_out</code> 到底是什么。这里需要一点数学推导。</p>
-<p>我们知道，对于一个n位数 <code>B</code>，它的按位取反 <code>¬B</code> 和它自身的关系是：<code>¬B = (2^n - 1) - B</code>。</p>
-<ul>
-<li>例如，对于8位数B，<code>¬B = (2^8 - 1) - B = 255 - B</code>。<code>11111111 - B</code> 就等于对B按位取反。</li>
-</ul>
+<p>将这两点结合，计算机在计算 <code>A - B</code>
+时，实际执行的完整操作是：</p>
+<p><span class="math inline">$A - B \quad \xrightarrow{\text{硬件实现}}
+\quad A + (\neg B + 1)$</span></p>
+<h3 id="cf标志在减法中的逻辑含义">2. CF标志在减法中的“逻辑”含义</h3>
+<p>设计CPU时希望借位时返回1</p>
+<h3 id="c_out在减法运算中的硬件产出">3.
+C_out在减法运算中的“硬件”产出</h3>
+<p>现在，我们分析在 <code>A + ¬B + 1</code>
+这个硬件运算中，最终的进位输出 <code>C_out</code>
+到底是什么。这里需要一点数学推导。</p>
+<p>我们知道，对于一个n位数 <code>B</code>，它的按位取反 <code>¬B</code>
+和它自身的关系是：<code>¬B = (2^n - 1) - B</code>。 *
+例如，对于8位数B，<code>¬B = (2^8 - 1) - B = 255 - B</code>。<code>11111111 - B</code>
+就等于对B按位取反。</p>
 <p>我们将这个关系代入硬件的实际运算中：</p>
-<p>$\text{硬件运算} = A + \neg B + 1 = A + \underbrace{((2^n - 1) - B)}_{\neg B} + 1$<br>$= A - B + (2^n - 1) + 1$<br>$= A - B + 2^n$</p>
-<p>现在，硬件加法器计算的是 <strong><code>A - B + 2^n</code></strong>，而 <code>C_out</code> 就是这个加法运算产生的最终进位。</p>
+<p><span class="math inline">$\text{硬件运算} = A + \neg B + 1 = A +
+\underbrace{((2^n - 1) - B)}_{\neg B} + 1$</span> <span
+class="math inline"> = <em>A</em> − <em>B</em> + (2<sup><em>n</em></sup> − 1) + 1</span>
+<span
+class="math inline"> = <em>A</em> − <em>B</em> + 2<sup><em>n</em></sup></span></p>
+<p>现在，硬件加法器计算的是
+<strong><code>A - B + 2^n</code></strong>，而 <code>C_out</code>
+就是这个加法运算产生的最终进位。</p>
 <p>我们来分析两种情况：</p>
-<h4 id="情况一：A-gt-B-逻辑上应为-CF-0"><a href="#情况一：A-gt-B-逻辑上应为-CF-0" class="headerlink" title="情况一：A &gt;= B (逻辑上应为 CF=0)"></a>情况一：A &gt;= B (逻辑上应为 CF=0)</h4><ul>
-<li>因为 <code>A &gt;= B</code>，所以 <code>A - B</code> 的结果是一个大于等于0的数。</li>
-<li>那么，<code>A - B + 2^n</code> 的结果就必然 <strong>大于等于 $2^n$</strong>。</li>
-<li>对于一个n位的加法器，当运算结果大于等于 $2^n$ 时，就意味着<strong>必然会产生一个向最高位的进位</strong>。</li>
-<li>因此，在这种情况下，硬件的进位输出 <strong><code>C_out = 1</code></strong>。</li>
+<h4 id="情况一a-b-逻辑上应为-cf0">情况一：A &gt;= B (逻辑上应为
+CF=0)</h4>
+<ul>
+<li>因为 <code>A &gt;= B</code>，所以 <code>A - B</code>
+的结果是一个大于等于0的数。</li>
+<li>那么，<code>A - B + 2^n</code> 的结果就必然 <strong>大于等于 <span
+class="math inline">2<sup><em>n</em></sup></span></strong>。</li>
+<li>对于一个n位的加法器，当运算结果大于等于 <span
+class="math inline">2<sup><em>n</em></sup></span>
+时，就意味着<strong>必然会产生一个向最高位的进位</strong>。</li>
+<li>因此，在这种情况下，硬件的进位输出
+<strong><code>C_out = 1</code></strong>。</li>
 </ul>
-<h4 id="情况二：A-lt-B-逻辑上应为-CF-1"><a href="#情况二：A-lt-B-逻辑上应为-CF-1" class="headerlink" title="情况二：A &lt; B (逻辑上应为 CF=1)"></a>情况二：A &lt; B (逻辑上应为 CF=1)</h4><ul>
-<li>因为 <code>A &lt; B</code>，所以 <code>A - B</code> 的结果是一个负数。</li>
-<li>那么，<code>A - B + 2^n</code> 的结果就必然 <strong>小于 $2^n$</strong>。</li>
-<li>对于一个n位的加法器，当运算结果小于 $2^n$ 时，就意味着<strong>不会产生向最高位的进位</strong>。</li>
-<li>因此，在这种情况下，硬件的进位输出 <strong><code>C_out = 0</code></strong>。</li>
+<h4 id="情况二a-b-逻辑上应为-cf1">情况二：A &lt; B (逻辑上应为
+CF=1)</h4>
+<ul>
+<li>因为 <code>A &lt; B</code>，所以 <code>A - B</code>
+的结果是一个负数。</li>
+<li>那么，<code>A - B + 2^n</code> 的结果就必然 <strong>小于 <span
+class="math inline">2<sup><em>n</em></sup></span></strong>。</li>
+<li>对于一个n位的加法器，当运算结果小于 <span
+class="math inline">2<sup><em>n</em></sup></span>
+时，就意味着<strong>不会产生向最高位的进位</strong>。</li>
+<li>因此，在这种情况下，硬件的进位输出
+<strong><code>C_out = 0</code></strong>。</li>
 </ul>
-<h3 id="4-结论：连接逻辑与硬件"><a href="#4-结论：连接逻辑与硬件" class="headerlink" title="4. 结论：连接逻辑与硬件"></a>4. 结论：连接逻辑与硬件</h3><p>现在我们把所有信息放在一张表里，真相就一目了然了：</p>
-<div class="table-container">
+<h3 id="结论连接逻辑与硬件">4. 结论：连接逻辑与硬件</h3>
+<p>现在我们把所有信息放在一张表里，真相就一目了然了：</p>
 <table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
 <thead>
 <tr>
-<th style="text-align:left">逻辑条件 (无符号数)</th>
-<th style="text-align:left">程序员期望的CF (借位逻辑)</th>
-<th style="text-align:left">硬件 <code>A + ¬B + 1</code> 的运算结果</th>
-<th style="text-align:left">硬件产生的 <code>C_out</code></th>
-<th style="text-align:left">关系</th>
+<th style="text-align: left;">逻辑条件 (无符号数)</th>
+<th style="text-align: left;">程序员期望的CF (借位逻辑)</th>
+<th style="text-align: left;">硬件 <code>A + ¬B + 1</code>
+的运算结果</th>
+<th style="text-align: left;">硬件产生的 <code>C_out</code></th>
+<th style="text-align: left;">关系</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left"><strong><code>A &gt;= B</code></strong></td>
-<td style="text-align:left"><strong><code>CF = 0</code></strong> (不借位)</td>
-<td style="text-align:left"><code>A - B + 2^n</code> (&gt;= $2^n$)</td>
-<td style="text-align:left"><strong><code>C_out = 1</code></strong></td>
-<td style="text-align:left"><code>CF = ¬C_out</code></td>
+<td
+style="text-align: left;"><strong><code>A &gt;= B</code></strong></td>
+<td style="text-align: left;"><strong><code>CF = 0</code></strong>
+(不借位)</td>
+<td style="text-align: left;"><code>A - B + 2^n</code> (&gt;= <span
+class="math inline">2<sup><em>n</em></sup></span>)</td>
+<td
+style="text-align: left;"><strong><code>C_out = 1</code></strong></td>
+<td style="text-align: left;"><code>CF = ¬C_out</code></td>
 </tr>
 <tr>
-<td style="text-align:left"><strong><code>A &lt; B</code></strong></td>
-<td style="text-align:left"><strong><code>CF = 1</code></strong> (需要借位)</td>
-<td style="text-align:left"><code>A - B + 2^n</code> (&lt; $2^n$)</td>
-<td style="text-align:left"><strong><code>C_out = 0</code></strong></td>
-<td style="text-align:left"><code>CF = ¬C_out</code></td>
+<td
+style="text-align: left;"><strong><code>A &lt; B</code></strong></td>
+<td style="text-align: left;"><strong><code>CF = 1</code></strong>
+(需要借位)</td>
+<td style="text-align: left;"><code>A - B + 2^n</code> (&lt; <span
+class="math inline">2<sup><em>n</em></sup></span>)</td>
+<td
+style="text-align: left;"><strong><code>C_out = 0</code></strong></td>
+<td style="text-align: left;"><code>CF = ¬C_out</code></td>
 </tr>
 </tbody>
 </table>
-</div>
-<p>从上表可以清晰地看到，硬件加法器自然产生的 <code>C_out</code> <strong>总是与我们逻辑上期望的CF标志值正好相反</strong>。</p>
-<p>因此，为了让CF标志能够正确地反映“是否借位”的逻辑，硬件设计师必须在最后一步进行取反操作。也就是说，CPU从加法器获取 <code>C_out</code> 后，会将其<strong>取反</strong>，然后才存入状态寄存器的CF标志位中。</p>
+<p>从上表可以清晰地看到，硬件加法器自然产生的 <code>C_out</code>
+<strong>总是与我们逻辑上期望的CF标志值正好相反</strong>。</p>
+<p>因此，为了让CF标志能够正确地反映“是否借位”的逻辑，硬件设计师必须在最后一步进行取反操作。也就是说，CPU从加法器获取
+<code>C_out</code>
+后，会将其<strong>取反</strong>，然后才存入状态寄存器的CF标志位中。</p>
 <p>这就是为什么说“减法时，<code>CF = ¬C_out</code>”。这并非一个随意的规定，而是为了用一套加法硬件来完美实现减法的逻辑，同时保持标志位含义一致性而做出的精妙设计。</p>
 
     </div>

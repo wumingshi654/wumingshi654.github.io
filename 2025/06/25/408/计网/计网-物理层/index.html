@@ -19,19 +19,17 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"wumingshi654.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.23.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="物理层就是如何发送01。可以利用高低电压，例如双绞线，通过铜线的电压变化来传输电信号。将两根线绞在一起是为了利用电磁感应原理，抵消外部的电磁干扰。 奈奎斯特定理主要用于描述一个无噪声、带宽有限的信道中，所能达到的最大码元传输速率。$R_{max} &#x3D; 2W \log_2(V)$  $W$: 信道带宽，单位是赫兹（Hz）。 $V$: 一个码元可以表示的离散状态的数量，例如用4种不同的电压电平来表示码">
+    <meta name="description" content="物理层就是如何发送01。 可以利用高低电压，例如双绞线，通过铜线的电压变化来传输电信号。将两根线绞在一起是为了利用电磁感应原理，抵消外部的电磁干扰。  奈奎斯特定理主要用于描述一个无噪声、带宽有限的信道中，所能达到的最大码元传输速率。 Rmax &#x3D; 2Wlog2(V) - W: 信道带宽，单位是赫兹（Hz）。 - V: 一个码元可以表示的离散状态的数量，例如用4种不同的电压电平来表示">
 <meta property="og:type" content="article">
 <meta property="og:title" content="计网-物理层">
 <meta property="og:url" content="https://wumingshi654.github.io/2025/06/25/408/%E8%AE%A1%E7%BD%91/%E8%AE%A1%E7%BD%91-%E7%89%A9%E7%90%86%E5%B1%82/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="物理层就是如何发送01。可以利用高低电压，例如双绞线，通过铜线的电压变化来传输电信号。将两根线绞在一起是为了利用电磁感应原理，抵消外部的电磁干扰。 奈奎斯特定理主要用于描述一个无噪声、带宽有限的信道中，所能达到的最大码元传输速率。$R_{max} &#x3D; 2W \log_2(V)$  $W$: 信道带宽，单位是赫兹（Hz）。 $V$: 一个码元可以表示的离散状态的数量，例如用4种不同的电压电平来表示码">
+<meta property="og:description" content="物理层就是如何发送01。 可以利用高低电压，例如双绞线，通过铜线的电压变化来传输电信号。将两根线绞在一起是为了利用电磁感应原理，抵消外部的电磁干扰。  奈奎斯特定理主要用于描述一个无噪声、带宽有限的信道中，所能达到的最大码元传输速率。 Rmax &#x3D; 2Wlog2(V) - W: 信道带宽，单位是赫兹（Hz）。 - V: 一个码元可以表示的离散状态的数量，例如用4种不同的电压电平来表示">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://res.cloudinary.com/dkdhhe5fc/image/upload/v1750861496/Snipaste_2025-06-25_22-23-19_b6qr6a.png">
 <meta property="article:published_time" content="2025-06-25T13:53:36.000Z">
 <meta property="article:modified_time" content="2025-07-03T12:03:57.902Z">
 <meta property="article:author" content="wumingshi654">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://res.cloudinary.com/dkdhhe5fc/image/upload/v1750861496/Snipaste_2025-06-25_22-23-19_b6qr6a.png">
 
 
 <link rel="canonical" href="https://wumingshi654.github.io/2025/06/25/408/%E8%AE%A1%E7%BD%91/%E8%AE%A1%E7%BD%91-%E7%89%A9%E7%90%86%E5%B1%82/">
@@ -74,9 +72,8 @@
 
   
 
-  <script class="next-config" data-name="enableMath" type="application/json">true</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha256-UF1fgpAiu3tPJN/uCqEUHNe7pnr+QR0SQDNfgglgtcM=" crossorigin="anonymous">
-  <script class="next-config" data-name="katex" type="application/json">{"copy_tex_js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/copy-tex.min.js","integrity":"sha256-Us54+rSGDSTvIhKKUs4kygE2ipA0RXpWWh0/zLqw3bs="}}</script>
-  <script src="/js/third-party/math/katex.js" defer></script>
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
 
 
 
@@ -154,13 +151,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-count">9</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
   </nav>
@@ -248,31 +245,34 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>物理层就是如何发送01。<br>可以利用高低电压，例如双绞线，通过铜线的电压变化来传输电信号。将两根线绞在一起是为了利用电磁感应原理，抵消外部的电磁干扰。<br><img src="https://res.cloudinary.com/dkdhhe5fc/image/upload/v1750861496/Snipaste_2025-06-25_22-23-19_b6qr6a.png" alt=""></p>
-<p>奈奎斯特定理主要用于描述一个<strong>无噪声、带宽有限</strong>的信道中，所能达到的最大码元传输速率。<br>$R_{max} = 2W \log_2(V)$</p>
+    <div class="post-body" itemprop="articleBody"><p>物理层就是如何发送01。
+可以利用高低电压，例如双绞线，通过铜线的电压变化来传输电信号。将两根线绞在一起是为了利用电磁感应原理，抵消外部的电磁干扰。
+<img
+src="https://res.cloudinary.com/dkdhhe5fc/image/upload/v1750861496/Snipaste_2025-06-25_22-23-19_b6qr6a.png" /></p>
+<p>奈奎斯特定理主要用于描述一个<strong>无噪声、带宽有限</strong>的信道中，所能达到的最大码元传输速率。
+<span
+class="math inline"><em>R</em><sub><em>m</em><em>a</em><em>x</em></sub> = 2<em>W</em>log<sub>2</sub>(<em>V</em>)</span>
+- <span class="math inline"><em>W</em></span>:
+信道带宽，单位是赫兹（Hz）。 - <span
+class="math inline"><em>V</em></span>:
+一个码元可以表示的离散状态的数量，例如用4种不同的电压电平来表示码元，或是ASK调制中采用4个幅值，则
+<span class="math inline"><em>V</em> = 4</span>。</p>
+<p>香农定理描述了在<strong>存在随机噪声、带宽有限</strong>的信道中，可靠通信（即错误率可以任意小）所能达到的最大信息传输速率，即<strong>信道容量</strong>。
+<span class="math inline">$C = W \log_2(1 + \frac{S}{N})$</span> - <span
+class="math inline"><em>W</em></span>: 信道带宽，单位是赫兹（Hz） -
+<span class="math inline"><em>S</em>/<em>N</em></span>:
+信噪比，单位是分贝（dB）</p>
+<p>数字信号不适合直接在所有类型的媒介上长距离传输，尤其是在无线和光纤中。调制就是将数字信号“加载”到更高频率的模拟载波信号上，使其更适合传输。
+* <strong>对于有线介质（如电话线拨号上网）</strong>： * <strong>幅移键控
+(ASK)</strong>：改变载波的振幅（高低）来表示0和1。 * <strong>频移键控
+(FSK)</strong>：改变载波的频率（快慢）来表示0和1。 * <strong>相移键控
+(PSK)</strong>：改变载波的相位（波形起点）来表示0和1。</p>
 <ul>
-<li>$W$: 信道带宽，单位是赫兹（Hz）。</li>
-<li>$V$: 一个码元可以表示的离散状态的数量，例如用4种不同的电压电平来表示码元，或是ASK调制中采用4个幅值，则 $V=4$。</li>
-</ul>
-<p>香农定理描述了在<strong>存在随机噪声、带宽有限</strong>的信道中，可靠通信（即错误率可以任意小）所能达到的最大信息传输速率，即<strong>信道容量</strong>。<br>$C = W \log_2(1 + \frac{S}{N})$</p>
+<li><strong>对于无线介质（Wi-Fi, 4G/5G）</strong>：
 <ul>
-<li>$W$: 信道带宽，单位是赫兹（Hz）</li>
-<li>$S/N$: 信噪比，单位是分贝（dB）</li>
-</ul>
-<p>数字信号不适合直接在所有类型的媒介上长距离传输，尤其是在无线和光纤中。调制就是将数字信号“加载”到更高频率的模拟载波信号上，使其更适合传输。</p>
-<ul>
-<li><p><strong>对于有线介质（如电话线拨号上网）</strong>：</p>
-<ul>
-<li><strong>幅移键控 (ASK)</strong>：改变载波的振幅（高低）来表示0和1。</li>
-<li><strong>频移键控 (FSK)</strong>：改变载波的频率（快慢）来表示0和1。</li>
-<li><strong>相移键控 (PSK)</strong>：改变载波的相位（波形起点）来表示0和1。</li>
-</ul>
-</li>
-<li><p><strong>对于无线介质（Wi-Fi, 4G/5G）</strong>：</p>
-<ul>
-<li>原理类似，但通常使用更复杂的调制技术，如 <strong>正交幅度调制 (QAM)</strong>，它同时改变振幅和相位，可以在一个信号周期内传输更多的比特，从而极大地提高传输速率。</li>
-</ul>
-</li>
+<li>原理类似，但通常使用更复杂的调制技术，如 <strong>正交幅度调制
+(QAM)</strong>，它同时改变振幅和相位，可以在一个信号周期内传输更多的比特，从而极大地提高传输速率。</li>
+</ul></li>
 </ul>
 <p>物理层设备有中继器和集线器。集线器的所有端口都属于同一个冲突域。</p>
 

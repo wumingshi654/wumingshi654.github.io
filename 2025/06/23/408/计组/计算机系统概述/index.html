@@ -19,12 +19,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"wumingshi654.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.23.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="预处理-&gt;编译-&gt;汇编-&gt;链接 32位&#x2F;64位计算机，32位是机器字长，说明通用寄存器宽度为32位，它还决定了内存寻址能力，如32位系统最多支持 $2^{32}$ 个地址，对应 4 GB 的内存。无论安装了多大内存条，32位的系统和处理器最多只能识别和使用约4 GB。数据总线是CPU与内存等其他组件之间传输数据的通道，可以高于CPU字长 CPU中有数十亿晶体管，时钟周期用来控制它">
+    <meta name="description" content="预处理-&gt;编译-&gt;汇编-&gt;链接 32位&#x2F;64位计算机，32位是机器字长，说明通用寄存器宽度为32位，它还决定了内存寻址能力，如32位系统最多支持 232 个地址，对应 4 GB 的内存。无论安装了多大内存条，32位的系统和处理器最多只能识别和使用约4 GB。数据总线是CPU与内存等其他组件之间传输数据的通道，可以高于CPU字长 CPU中有数十亿晶体管，时钟周期用来控制">
 <meta property="og:type" content="article">
 <meta property="og:title" content="计算机系统概述">
 <meta property="og:url" content="https://wumingshi654.github.io/2025/06/23/408/%E8%AE%A1%E7%BB%84/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="预处理-&gt;编译-&gt;汇编-&gt;链接 32位&#x2F;64位计算机，32位是机器字长，说明通用寄存器宽度为32位，它还决定了内存寻址能力，如32位系统最多支持 $2^{32}$ 个地址，对应 4 GB 的内存。无论安装了多大内存条，32位的系统和处理器最多只能识别和使用约4 GB。数据总线是CPU与内存等其他组件之间传输数据的通道，可以高于CPU字长 CPU中有数十亿晶体管，时钟周期用来控制它">
+<meta property="og:description" content="预处理-&gt;编译-&gt;汇编-&gt;链接 32位&#x2F;64位计算机，32位是机器字长，说明通用寄存器宽度为32位，它还决定了内存寻址能力，如32位系统最多支持 232 个地址，对应 4 GB 的内存。无论安装了多大内存条，32位的系统和处理器最多只能识别和使用约4 GB。数据总线是CPU与内存等其他组件之间传输数据的通道，可以高于CPU字长 CPU中有数十亿晶体管，时钟周期用来控制">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-06-23T13:35:17.000Z">
 <meta property="article:modified_time" content="2025-06-23T14:01:54.788Z">
@@ -72,9 +72,8 @@
 
   
 
-  <script class="next-config" data-name="enableMath" type="application/json">true</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha256-UF1fgpAiu3tPJN/uCqEUHNe7pnr+QR0SQDNfgglgtcM=" crossorigin="anonymous">
-  <script class="next-config" data-name="katex" type="application/json">{"copy_tex_js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/copy-tex.min.js","integrity":"sha256-Us54+rSGDSTvIhKKUs4kygE2ipA0RXpWWh0/zLqw3bs="}}</script>
-  <script src="/js/third-party/math/katex.js" defer></script>
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
 
 
 
@@ -152,13 +151,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-count">9</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
   </nav>
@@ -241,8 +240,16 @@
     
     
     <div class="post-body" itemprop="articleBody"><p>预处理-&gt;编译-&gt;汇编-&gt;链接</p>
-<p>32位/64位计算机，32位是机器字长，说明通用寄存器宽度为32位，它还决定了内存寻址能力，如32位系统最多支持 $2^{32}$ 个地址，对应 <strong>4 GB</strong> 的内存。无论安装了多大内存条，32位的系统和处理器最多只能识别和使用约4 GB。数据总线是CPU与内存等其他组件之间传输数据的通道，可以高于CPU字长</p>
-<p>CPU中有数十亿晶体管，时钟周期用来控制它们同步工作，是CPU能够执行操作的<strong>最小时间单位</strong>。如“3.4 GHz CPU”，指的就是时钟速度(GHz = $2^{9}Hz$)。时钟周期 = 1 / 时钟速度。此外还有指令周期，复杂的指令要花费数十上百个时钟周期完成。现代CPU通过流水线和超标量等技术可以在一个时钟周期同时执行多条指令，从而提升效率。</p>
+<p>32位/64位计算机，32位是机器字长，说明通用寄存器宽度为32位，它还决定了内存寻址能力，如32位系统最多支持
+<span class="math inline">2<sup>32</sup></span> 个地址，对应 <strong>4
+GB</strong>
+的内存。无论安装了多大内存条，32位的系统和处理器最多只能识别和使用约4
+GB。数据总线是CPU与内存等其他组件之间传输数据的通道，可以高于CPU字长</p>
+<p>CPU中有数十亿晶体管，时钟周期用来控制它们同步工作，是CPU能够执行操作的<strong>最小时间单位</strong>。如“3.4
+GHz CPU”，指的就是时钟速度(GHz = <span
+class="math inline">2<sup>9</sup><em>H</em><em>z</em></span>)。时钟周期
+= 1 /
+时钟速度。此外还有指令周期，复杂的指令要花费数十上百个时钟周期完成。现代CPU通过流水线和超标量等技术可以在一个时钟周期同时执行多条指令，从而提升效率。</p>
 <p>CPI(Cycle Per Instruction)，执行一条指令的时钟周期</p>
 <p>IPS(Instruction Per Second)，每秒执行多少条指令，IPS=主频/平均CPI</p>
 
