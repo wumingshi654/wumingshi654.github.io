@@ -64,7 +64,7 @@ prismjs:
 # order_by: Posts order. (Order by date descending by default)
 index_generator:
   path: ''
-  per_page: 30
+  per_page: 10
   order_by: -date
 
 # Category & Tag
@@ -107,6 +107,20 @@ deploy:
   type: git
   repo: git@wuming:wumingshi654/wumingshi654.github.io.git
   branch: main
+
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
+
+# Pandoc renderer configuration
+pandoc:
+  args:
+    # 启用硬换行扩展，将所有单次回车转换为<br>
+    - --from=markdown+hard_line_breaks 
+    # 如果您也使用MathJax，请保留这一行
+    - --mathjax
 
 sitemap:
   path: 
