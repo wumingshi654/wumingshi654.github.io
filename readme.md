@@ -3,7 +3,7 @@ hexo generate
 hexo deploy
 
 hexo clean && hexo s
-hexo new page --path _posts/408/计网/计网-网络层 "计网-网络层"
+hexo new page --path _posts/408/计网/计网-传输层 "计网-传输层"
 hexo new page --path _posts/数学/高数/常用定理/变限积分求导公式 "变限积分求导公式"
 hexo new page --path _posts/数学/线性代数/行列式 "行列式"
 hexo new page --path _posts/英语/英语-24 "英语-24"
