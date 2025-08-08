@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>云服务器上使用Docker部署代理</title>
+    <url>/2025/08/08/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E4%BD%BF%E7%94%A8Docker%E9%83%A8%E7%BD%B2%E4%BB%A3%E7%90%86/</url>
+    <content><![CDATA[<h4 id="参考链接">参考链接</h4>
+<ul>
+<li><a
+href="https://github.com/metacubex/metacubexd">Docker配置文件</a></li>
+<li><a href="https://docker.aityp.com/">ghcr.io代理</a></li>
+<li><a
+href="https://github.com/Loyalsoldier/geoip/releases/tag/202508070023">地址文件下载</a></li>
+</ul>
+<h4 id="部署过程">部署过程</h4>
+<p>创建docker-compose.yml文件<br />
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&#x27;3&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">metacubexd:</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">metacubexd</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">ghcr.io/metacubex/metacubexd</span> <span class="comment"># 此处仅配置docker镜像不能加速，可以使用ghcr.io代理</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&#x27;80:80&#x27;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># optional</span></span><br><span class="line">  <span class="attr">meta:</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">meta</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">docker.io/metacubex/mihomo:Alpha</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line">    <span class="attr">pid:</span> <span class="string">host</span></span><br><span class="line">    <span class="attr">ipc:</span> <span class="string">host</span></span><br><span class="line">    <span class="attr">network_mode:</span> <span class="string">host</span></span><br><span class="line">    <span class="attr">cap_add:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ALL</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./config.yaml:/root/.config/mihomo</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">/dev/net/tun:/dev/net/tun</span></span><br></pre></td></tr></table></figure></p>
+<p>mihomo内核缺少MMDB文件启动时会报错,
+需要自行下载放到config文件夹:<br />
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">clash_core_meta  | time=&quot;2025-08-08T08:11:01.716765387Z&quot; level=info msg=&quot;Start initial configuration in progress&quot;</span><br><span class="line">clash_core_meta  | time=&quot;2025-08-08T08:11:01.764156792Z&quot; level=info msg=&quot;Geodata Loader mode: memconservative&quot;</span><br><span class="line">clash_core_meta  | time=&quot;2025-08-08T08:11:01.764196046Z&quot; level=info msg=&quot;Geosite Matcher implementation: succinct&quot;</span><br><span class="line">clash_core_meta  | time=&quot;2025-08-08T08:11:01.777027228Z&quot; level=warning msg=&quot;MMDB invalid, remove and download&quot;</span><br><span class="line">clash_core_meta  | time=&quot;2025-08-08T08:12:31.783026266Z&quot; level=error msg=&quot;can&#x27;t initial GeoIP: can&#x27;t download MMDB: context deadline exceeded&quot;</span><br></pre></td></tr></table></figure></p>
+<p>打开暴露的端口进入连接页面，后端地址位公网ip+9090端口，secret为设置的密钥<br />
+<img
+src="https://pub-3809a824eb8b4c2ebf27716c5f100aa2.r2.dev/Snipaste_2025-08-08_20-25-00.png"
+alt="连接页面" /></p>
+<p>登录成功<br />
+<img
+src="https://pub-3809a824eb8b4c2ebf27716c5f100aa2.r2.dev/Snipaste_2025-08-08_20-25-15.png"
+alt="登录成功" /></p>
+]]></content>
+  </entry>
+</search>
