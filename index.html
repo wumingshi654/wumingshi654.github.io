@@ -176,9 +176,14 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-count">2</span>
           <span class="site-state-item-name">日志</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
@@ -194,6 +199,114 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wumingshi654.github.io/2025/08/12/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2code-server+oauth2%E8%AE%A4%E8%AF%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="wumingshi654">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/08/12/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2code-server+oauth2%E8%AE%A4%E8%AF%81/" class="post-title-link" itemprop="url">云服务器部署code-server+oauth2认证</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2025-08-12 18:33:00 / 修改时间：18:33:38" itemprop="dateCreated datePublished" datetime="2025-08-12T18:33:00+08:00">2025-08-12</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>平时都是使用vscode的ssh-remote访问云服务器,
+但如果云服务器在境外这样会很卡,
+可以直接在服务器上部署code-server开代理使用网页访问</p>
+<h2 id="code-server">code-server</h2>
+<p>下载安装脚本<br />
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://code-server.dev/install.sh | sh</span><br></pre></td></tr></table></figure><br />
+修改 ~/.config/code-server/config.yaml中的配置,
+如果不想麻烦可以直接设置一个密码访问即可,
+为了防止密码爆破可以考虑使用oauth2-proxy+github账号的方式验证<br />
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">bind-addr: 127.0.0.1:8080</span><br><span class="line">auth: password</span><br><span class="line">password: my-password</span><br><span class="line">cert: false</span><br><span class="line"></span><br><span class="line">bind-addr: 127.0.0.1:8080</span><br><span class="line">auth: none               </span><br><span class="line">cert: false              </span><br></pre></td></tr></table></figure></p>
+<p>然后在aaPanel设置nginx域名和反代, 如果是使用密码现在就可以访问了,
+如果使用oauth2-proxy还需要继续设置</p>
+<h2 id="oauth2-proxy">oauth2-proxy</h2>
+<p>在Github Settings -&gt; Developer settings -&gt; OAuth Apps -&gt; New
+OAuth App. Homepage URL设置为域名, Authorization callback
+URL可设置为域名/oauth2/callback<br />
+下载<a
+target="_blank" rel="noopener" href="https://github.com/oauth2-proxy/oauth2-proxy/releases">oauth2-proxy</a><br />
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/oauth2-proxy/oauth2-proxy/releases/download/v7.6.0/oauth2-proxy-v7.6.0.linux-amd64.tar.gz</span><br><span class="line">tar -xvf oauth2-proxy-v7.6.0.linux-amd64.tar.gz</span><br><span class="line">sudo mv oauth2-proxy-v7.6.0.linux-amd64/oauth2-proxy /usr/local/bin/</span><br></pre></td></tr></table></figure></p>
+<p>然后创建配置文件 oauth2-proxy.cfg<br />
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">provider = &quot;github&quot;</span><br><span class="line"></span><br><span class="line">client_id = &quot;client_id&quot;</span><br><span class="line">client_secret = &quot;client_secret&quot;</span><br><span class="line"></span><br><span class="line">cookie_secret = &quot;&#123;32位base64&#125;&quot;</span><br><span class="line">cookie_secure = true</span><br><span class="line">cookie_domains = [&quot;.domain&quot;] # 注意前面的点</span><br><span class="line"></span><br><span class="line">http_address = &quot;127.0.0.1:4180&quot;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">必须与 GitHub 中设置的Authorization callback URL完全一致</span></span><br><span class="line">redirect_url = &quot;https://domain/oauth2/callback&quot;</span><br><span class="line"></span><br><span class="line">pass_authorization_header = true</span><br><span class="line">set_xauthrequest = true</span><br><span class="line"></span><br><span class="line">email_domains = [ &quot;*&quot; ] </span><br><span class="line"></span><br><span class="line">github_users = [&quot;github username&quot;]</span><br></pre></td></tr></table></figure></p>
+<p>创建一个服务运行oauth2-proxy<br />
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=oauth2-proxy</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">ExecStart=/usr/local/bin/oauth2-proxy --config=/oauth2-proxy.cfg</span><br><span class="line">Restart=always</span><br><span class="line">RestartSec=3</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure></p>
+<p>在nginx反代中配置<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">location = /oauth2/auth &#123;</span><br><span class="line">    internal;</span><br><span class="line">    proxy_pass http://oauth2-proxy;</span><br><span class="line">    proxy_set_header Host $host;</span><br><span class="line">    proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">    proxy_set_header X-Scheme $scheme;</span><br><span class="line">    proxy_set_header X-Auth-Request-Redirect $request_uri;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location /oauth2/ &#123;</span><br><span class="line">    proxy_pass http://oauth2-proxy;</span><br><span class="line">    proxy_set_header Host $host;</span><br><span class="line">    proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">    proxy_set_header X-Scheme $scheme;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">location / &#123;</span><br><span class="line">    auth_request /oauth2/auth;</span><br><span class="line"></span><br><span class="line">    error_page 401 = /oauth2/start?rd=$request_uri;</span><br><span class="line"></span><br><span class="line">    auth_request_set $user $upstream_http_x_auth_request_user;</span><br><span class="line">    auth_request_set $email $upstream_http_x_auth_request_email;</span><br><span class="line">    proxy_set_header X-User $user;</span><br><span class="line">    proxy_set_header X-Email $email;</span><br><span class="line"></span><br><span class="line">    proxy_pass http://code-server;</span><br><span class="line">    proxy_set_header Host $host;</span><br><span class="line">    proxy_set_header Upgrade $http_upgrade;</span><br><span class="line">    proxy_set_header Connection &quot;upgrade&quot;;</span><br><span class="line">    proxy_set_header Accept-Encoding &quot;gzip&quot;;</span><br><span class="line">    proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="nginx-emerg-unknown-directive-auth_request-in">nginx: [emerg]
+unknown directive “auth_request” in</h2>
+<p>如果在aaPanel保存配置文件时出现nginx: [emerg] unknown directive
+“auth_request” in….的错误, 说明安装的nginx不支持auth_request,
+需要重新编译安装.<br />
+首先卸载nginx P.S. <strong>如果之前配置过域名登录aaPanel,
+一定要关掉这个然后试一下IP登录,
+否则卸载nginx后就登不上了!!!</strong></p>
+<hr />
+<p>如果忘记关域名登录, 可以ssh到云服务器上, 执行bt , 选择Cancel domain
+binding limit, 清除浏览器cookie后用IP登录</p>
+<hr />
+<p>然后编译安装, 模块名http_auth_request_module
+模块参数–with-http_auth_request_module</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -231,9 +344,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2025-08-08 22:17:50 / 修改时间：22:18:08" itemprop="dateCreated datePublished" datetime="2025-08-08T22:17:50+08:00">2025-08-08</time>
+      <time title="创建时间：2025-08-08 22:17:50" itemprop="dateCreated datePublished" datetime="2025-08-08T22:17:50+08:00">2025-08-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-12 18:33:37" itemprop="dateModified" datetime="2025-08-12T18:33:37+08:00">2025-08-12</time>
     </span>
 
   
